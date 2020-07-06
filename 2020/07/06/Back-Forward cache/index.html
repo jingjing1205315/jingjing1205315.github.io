@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Back-Forward cache | April的个人小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Back&#x2F;Forward cache往返缓存（Back&#x2F;Forward cache，下文中简称bfcache）是浏览器为了在用户页面间执行前进后退操作时拥有更加流畅体验的一种策略。该策略具体表现为，当用户前往新页面时，将当前页面的浏览器DOM状态保存到bfcache中；当用户点击后退按钮的时候，将页面直接从bfcache中加载，节省了网络请求的时间。 比如：二级页面有用户操作行为导致的状态变更，我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Back-Forward cache">
+<meta property="og:url" content="http://yoursite.com/2020/07/06/Back-Forward%20cache/index.html">
+<meta property="og:site_name" content="April的个人小站">
+<meta property="og:description" content="Back&#x2F;Forward cache往返缓存（Back&#x2F;Forward cache，下文中简称bfcache）是浏览器为了在用户页面间执行前进后退操作时拥有更加流畅体验的一种策略。该策略具体表现为，当用户前往新页面时，将当前页面的浏览器DOM状态保存到bfcache中；当用户点击后退按钮的时候，将页面直接从bfcache中加载，节省了网络请求的时间。 比如：二级页面有用户操作行为导致的状态变更，我">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-06T07:22:10.056Z">
+<meta property="article:modified_time" content="2020-07-06T07:22:10.056Z">
+<meta property="article:author" content="April">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/public/atom.xml" title="April的个人小站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/public/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/public/" id="logo">April的个人小站</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/public/">Home</a>
+        
+          <a class="main-nav-link" href="/public/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/public/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Back-Forward cache" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/public/2020/07/06/Back-Forward%20cache/" class="article-date">
+  <time datetime="2020-07-06T07:22:10.056Z" itemprop="datePublished">2020-07-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Back-Forward cache
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Back-Forward-cache"><a href="#Back-Forward-cache" class="headerlink" title="Back/Forward cache"></a>Back/Forward cache</h1><p>往返缓存（Back/Forward cache，下文中简称bfcache）是浏览器为了在用户页面间执行前进后退操作时拥有更加流畅体验的一种策略。该策略具体表现为，当用户前往新页面时，将当前页面的浏览器DOM状态保存到bfcache中；当用户点击后退按钮的时候，将页面直接从bfcache中加载，节省了网络请求的时间。</p>
+<p>比如：二级页面有用户操作行为导致的状态变更，我们希望回退时一级页面有相应的体现。这时希望浏览器不要展现缓存页面。</p>
+<p><strong>解决方案：</strong>根据<a href="https://github.com/LeuisKen/leuisken.github.io/issues/6" target="_blank" rel="noopener">浏览器往返缓存（Back/Forward cache）问题的分析与解决</a>，尝试用worker，无效果。</p>
+<p>回退会触发：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&#39;pageshow&#39;, event &#x3D;&gt; &#123;</span><br><span class="line">  if (event.persisted) &#123;</span><br><span class="line">    window.location.reload();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样页面会重新加载，但缓存的页面会闪现一下。如果页面有load动画，动画在闪现的缓存页面也会执行。</p>
+<p><strong>解决方案：</strong>首页进入页面，动画执行完，移除动画dom，这样回退的时候，在缓存的页面就不会有动画。</p>
+<p><strong>完美方案：</strong>缓存页面不闪现。（未解决）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/06/Back-Forward%20cache/" data-id="ckca6fqcf0000ynp2ayjl1cwt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/public/2020/07/06/js%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">js防抖和节流</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/public/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/public/2020/07/06/Back-Forward%20cache/">Back-Forward cache</a>
+          </li>
+        
+          <li>
+            <a href="/public/2020/07/06/js%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/">js防抖和节流</a>
+          </li>
+        
+          <li>
+            <a href="/public/2020/07/06/JavaScript%20%E5%A4%8D%E6%9D%82%E5%88%A4%E6%96%AD%E7%9A%84%E6%9B%B4%E4%BC%98%E9%9B%85%E5%86%99%E6%B3%95/">JavaScript 复杂判断的更优雅写法</a>
+          </li>
+        
+          <li>
+            <a href="/public/2020/07/06/web%20worker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">web worker使用教程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 April<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/public/" class="mobile-nav-link">Home</a>
+  
+    <a href="/public/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/public/fancybox/jquery.fancybox.css">
+
+  
+<script src="/public/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/public/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
