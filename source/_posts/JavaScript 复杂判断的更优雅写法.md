@@ -1,4 +1,12 @@
-# JavaScript 复杂判断的更优雅写法
+---
+title: 'JavaScript 复杂判断的更优雅写法'
+date: 2020-07-05 20:00:00
+tags: 
+---
+
+我们编写js代码时经常遇到复杂逻辑判断的情况，通常大家可以用if/else或者switch来实现多个条件判断，但这样会有个问题，随着逻辑复杂度的增加，代码中的if/else/switch会变得越来越臃肿，越来越看不懂，那么如何更优雅的写判断逻辑，本文带你试一下。
+<!--more-->
+
 转载在[JavaScript 复杂判断的更优雅写法](https://mp.weixin.qq.com/s/JkZZbWOesqWDVGkUh2lRvg)
 
 ## 前提
