@@ -16,7 +16,7 @@ script:                       # 在构建阶段需要运行的命令，一条一
 branches:
   only:
     - gh-pages # build gh-pages branch only
-target-branch: master
+
 
 deploy:
   provider: pages
@@ -26,3 +26,4 @@ deploy:
   on:
     branch: gh-pages
   local-dir: public
+  target-branch: master
