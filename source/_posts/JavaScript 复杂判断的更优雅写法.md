@@ -60,8 +60,8 @@
           break
       }
     }
-    ```
-    嗯，这样看起来比if/else清晰多了，细心的同学也发现了小技巧，case 2和case 3逻辑一样的时候，可以省去执行语句和break，则case 2的情况自动执行case 3的逻辑。
+```
+嗯，这样看起来比if/else清晰多了，细心的同学也发现了小技巧，case 2和case 3逻辑一样的时候，可以省去执行语句和break，则case 2的情况自动执行case 3的逻辑。
 
 这时有同学会说，还有更简单的写法：
 ```
@@ -83,8 +83,8 @@ const actions = {
       sendLog(logName)
       jumpTo(pageName)
     }
-    ```
-    上面代码确实看起来更清爽了，这种方法的聪明之处在于：将判断条件作为对象的属性名，将处理逻辑作为对象的属性值，在按钮点击的时候，通过对象属性查找的方式来进行逻辑判断，这种写法特别适合一元条件判断的情况。
+```
+上面代码确实看起来更清爽了，这种方法的聪明之处在于：将判断条件作为对象的属性名，将处理逻辑作为对象的属性值，在按钮点击的时候，通过对象属性查找的方式来进行逻辑判断，这种写法特别适合一元条件判断的情况。
 
 是不是还有其他写法呢？有的：
 ```
@@ -104,12 +104,13 @@ const actions = newMap([
       sendLog(action[0])
       jumpTo(action[1])
     }
-    ```
-    这样写用到了es6里的Map对象，是不是更爽了？Map对象和Object对象有什么区别呢？
+```
+这样写用到了es6里的Map对象，是不是更爽了？Map对象和Object对象有什么区别呢？
 
 1. 一个对象通常都有自己的原型，所以一个对象总有一个"prototype"键。
 2. 一个对象的键只能是字符串或者Symbols，但一个Map的键可以是任意值。
 3. 你可以通过size属性很容易地得到一个Map的键值对个数，而对象的键值对个数只能手动确认。
+
 我们需要把问题升级一下，以前按钮点击时候只需要判断status，现在还需要判断用户的身份：
 ```
 /**
@@ -147,7 +148,7 @@ const actions = newMap([
         }
       }
     }
-    ```
+```
 原谅我不写每个判断里的具体逻辑了，因为代码太冗长了。
 
 原谅我又用了if/else，因为我看到很多人依然在用if/else写这种大段的逻辑判断。
@@ -193,10 +194,10 @@ const actions = {
       let action = actions[`${identity}_${status}`] || actions['default']
       action.call(this)
     }
-    ```
+```
 如果有些同学觉得把查询条件拼成字符串有点别扭，那还有一种方案，就是用Map对象，以Object对象作为key：
     
-    ```
+```
     const actions = newMap([
       [{identity:'guest',status:1},()=>{/*do sth*/}],
       [{identity:'guest',status:2},()=>{/*do sth*/}],
@@ -207,7 +208,7 @@ const actions = {
       let action = [...actions].filter(([key,value])=>(key.identity == identity && key.status == status))
       action.forEach(([key,value])=>value.call(this))
     }
-    ```
+```
 是不是又高级了一点点？
 
 这里也看出来Map与Object的区别，Map可以用任何类型的数据作为key。
@@ -243,7 +244,7 @@ const actions = ()=>{
       let action = [...actions()].filter(([key,value])=>(key.identity == identity && key.status == status))
       action.forEach(([key,value])=>value.call(this))
     }
-    ```
+```
 这样写已经能满足日常需求了，但认真一点讲，上面重写了4次functionA还是有点不爽，假如判断条件变得特别复杂，比如identity有3种状态，status有10种状态，那你需要定义30条处理逻辑，而往往这些逻辑里面很多都是相同的，这似乎也是笔者不想接受的，那可以这样实现:
 ```
 const actions = ()=>{
@@ -279,7 +280,7 @@ const actions = ()=>{
       let action = [...actions()].filter(([key,value])=>(key.test(`${identity}_${status}`)))
       action.forEach(([key,value])=>value.call(this))
     }
-    ```
+```
 也就是说利用数组循环的特性，符合正则条件的逻辑都会被执行，那就可以同时执行公共逻辑和单独逻辑，因为正则的存在，你可以打开想象力解锁更多的玩法，本文就不赘述了。
 
 ## 总结
