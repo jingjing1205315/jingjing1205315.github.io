@@ -24,6 +24,18 @@
         <content type="html"><![CDATA[<p>往返缓存（Back/Forward cache，下文中简称bfcache）是浏览器为了在用户页面间执行前进后退操作时拥有更加流畅体验的一种策略。该策略具体表现为，当用户前往新页面时，将当前页面的浏览器DOM状态保存到bfcache中；当用户点击后退按钮的时候，将页面直接从bfcache中加载，节省了网络请求的时间。</p><a id="more"></a><p>往返缓存（Back/Forward cache，下文中简称bfcache）是浏览器为了在用户页面间执行前进后退操作时拥有更加流畅体验的一种策略。该策略具体表现为，当用户前往新页面时，将当前页面的浏览器DOM状态保存到bfcache中；当用户点击后退按钮的时候，将页面直接从bfcache中加载，节省了网络请求的时间。</p><p>比如：二级页面有用户操作行为导致的状态变更，我们希望回退时一级页面有相应的体现。这时希望浏览器不要展现缓存页面。</p><p><strong>解决方案：</strong>根据<a href="https://github.com/LeuisKen/leuisken.github.io/issues/6" target="_blank" rel="noopener">浏览器往返缓存（Back/Forward cache）问题的分析与解决</a>，尝试用worker，无效果。</p><p>回退会触发：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&#39;pageshow&#39;, event &#x3D;&gt; &#123;</span><br><span class="line">  if (event.persisted) &#123;</span><br><span class="line">    window.location.reload();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>这样页面会重新加载，但缓存的页面会闪现一下。如果页面有load动画，动画在闪现的缓存页面也会执行。</p><p><strong>解决方案：</strong>首页进入页面，动画执行完，移除动画dom，这样回退的时候，在缓存的页面就不会有动画。</p><p><strong>完美方案：</strong>缓存页面不闪现。（未解决）</p>]]></content>
       
       
+      <categories>
+          
+          <category> PHONE </category>
+          
+          <category> IOS </category>
+          
+          <category> JS </category>
+          
+          <category> ACCUMULATION </category>
+          
+      </categories>
+      
       
     </entry>
     
