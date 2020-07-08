@@ -2,6 +2,10 @@
 title: 'Back-Forward cache'
 date: 2020-07-06 20:00:00
 tags: 
+categories:
+- [PHONE, IOS]
+- [JS]
+- [ACCUMULATION]
 ---
 
 往返缓存（Back/Forward cache，下文中简称bfcache）是浏览器为了在用户页面间执行前进后退操作时拥有更加流畅体验的一种策略。该策略具体表现为，当用户前往新页面时，将当前页面的浏览器DOM状态保存到bfcache中；当用户点击后退按钮的时候，将页面直接从bfcache中加载，节省了网络请求的时间。
