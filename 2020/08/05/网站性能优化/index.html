@@ -20,28 +20,32 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="April的个人小站">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="文件放在合适的位置。*Css样式文件链接尽量放在头部Css加载不会阻碍DOM tree解析，但是会阻塞到DOM tree渲染，也会阻塞后面js执行。任何body元素之前，可以确保在文档部分中解析了所有的css样式（内联和外联），从而减少了浏览器必须重排文档的次数，如果放置页面底部，就要等待最后一个css文件下载完成，此时会出现“白屏”影响用户体验。 *Js引用放在html底部防止js的加载、解析、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站性能优化">
+<meta property="og:url" content="http://yoursite.com/2020/08/05/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="April的个人小站">
+<meta property="og:description" content="文件放在合适的位置。*Css样式文件链接尽量放在头部Css加载不会阻碍DOM tree解析，但是会阻塞到DOM tree渲染，也会阻塞后面js执行。任何body元素之前，可以确保在文档部分中解析了所有的css样式（内联和外联），从而减少了浏览器必须重排文档的次数，如果放置页面底部，就要等待最后一个css文件下载完成，此时会出现“白屏”影响用户体验。 *Js引用放在html底部防止js的加载、解析、">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-05T09:46:11.324Z">
+<meta property="article:modified_time" content="2020-08-05T09:46:11.324Z">
 <meta property="article:author" content="April">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/08/05/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh_CN'
   };
 </script>
 
-  <title>April的个人小站</title>
+  <title>网站性能优化 | April的个人小站</title>
   
 
 
@@ -140,9 +144,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
@@ -158,10 +163,9 @@
       <meta itemprop="name" content="April的个人小站">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/05/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">网站性能优化</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          网站性能优化
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -184,7 +188,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="文件放在合适的位置。"><a href="#文件放在合适的位置。" class="headerlink" title="文件放在合适的位置。"></a>文件放在合适的位置。</h3><p><strong>*Css样式文件链接尽量放在头部</strong><br>Css加载不会阻碍DOM tree解析，但是会阻塞到DOM tree渲染，也会阻塞后面js执行。任何body元素之前，可以确保在文档部分中解析了所有的css样式（内联和外联），从而减少了浏览器必须重排文档的次数，如果放置页面底部，就要等待最后一个css文件下载完成，此时会出现“白屏”影响用户体验。</p>
+        <h3 id="文件放在合适的位置。"><a href="#文件放在合适的位置。" class="headerlink" title="文件放在合适的位置。"></a>文件放在合适的位置。</h3><p><strong>*Css样式文件链接尽量放在头部</strong><br>Css加载不会阻碍DOM tree解析，但是会阻塞到DOM tree渲染，也会阻塞后面js执行。任何body元素之前，可以确保在文档部分中解析了所有的css样式（内联和外联），从而减少了浏览器必须重排文档的次数，如果放置页面底部，就要等待最后一个css文件下载完成，此时会出现“白屏”影响用户体验。</p>
 <p><strong>*Js引用放在html底部</strong><br>防止js的加载、解析、执行对阻塞页面后续元素的正常渲染。</p>
 <h3 id="精简html代码，"><a href="#精简html代码，" class="headerlink" title="精简html代码，"></a>精简html代码，</h3><p><strong>减少html的嵌套</strong><br><strong>减少当节点数</strong><br><strong>减少无语意代码。如消除浮动。</strong><br><strong>删除http或者https，如果url的协议头和当前页面的协议头一致的，或者此url在多个协议里头都是可用的，则可以考虑删除协议头</strong><br><strong>删除多余的空格，换行符、缩进和不必要的注释</strong><br><strong>省略冗余标签和属性</strong><br><strong>使用相对路径的url</strong></p>
 <h3 id="增强用户体验"><a href="#增强用户体验" class="headerlink" title="增强用户体验"></a>增强用户体验</h3><p><strong>设置favicon.ico</strong><br>网站如果不设置favicon.ico，控制台会报错，另外页面加载过程中也没有图标loading过程,同时也不利于记忆网站品牌，建议统一添加</p>
@@ -342,403 +346,30 @@
 <li>开发模式进行DLL&amp;DllReference方案优化</li>
 </ul>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/07/hexo%E5%92%8Ctravis%E5%BB%BAgithub.io%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="April">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="April的个人小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/07/hexo%E5%92%8Ctravis%E5%BB%BAgithub.io%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">hexo和travis建github.io个人博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-07 20:00:00" itemprop="dateCreated datePublished" datetime="2020-07-07T20:00:00+00:00">2020-07-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-05 09:46:11" itemprop="dateModified" datetime="2020-08-05T09:46:11+00:00">2020-08-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>hexo和travis建github.io个人博客</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/07/hexo%E5%92%8Ctravis%E5%BB%BAgithub.io%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/Back-Forward%20cache/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="April">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="April的个人小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/06/Back-Forward%20cache/" class="post-title-link" itemprop="url">Back-Forward cache</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-06 20:00:00" itemprop="dateCreated datePublished" datetime="2020-07-06T20:00:00+00:00">2020-07-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-05 09:46:11" itemprop="dateModified" datetime="2020-08-05T09:46:11+00:00">2020-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHONE/" itemprop="url" rel="index"><span itemprop="name">PHONE</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHONE/IOS/" itemprop="url" rel="index"><span itemprop="name">IOS</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACCUMULATION/" itemprop="url" rel="index"><span itemprop="name">ACCUMULATION</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>往返缓存（Back/Forward cache，下文中简称bfcache）是浏览器为了在用户页面间执行前进后退操作时拥有更加流畅体验的一种策略。该策略具体表现为，当用户前往新页面时，将当前页面的浏览器DOM状态保存到bfcache中；当用户点击后退按钮的时候，将页面直接从bfcache中加载，节省了网络请求的时间。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/06/Back-Forward%20cache/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/07/hexo%E5%92%8Ctravis%E5%BB%BAgithub.io%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="prev" title="hexo和travis建github.io个人博客">
+      <i class="fa fa-chevron-left"></i> hexo和travis建github.io个人博客
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/05/JavaScript%20%E5%A4%8D%E6%9D%82%E5%88%A4%E6%96%AD%E7%9A%84%E6%9B%B4%E4%BC%98%E9%9B%85%E5%86%99%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="April">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="April的个人小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/05/JavaScript%20%E5%A4%8D%E6%9D%82%E5%88%A4%E6%96%AD%E7%9A%84%E6%9B%B4%E4%BC%98%E9%9B%85%E5%86%99%E6%B3%95/" class="post-title-link" itemprop="url">JavaScript 复杂判断的更优雅写法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-05 20:00:00" itemprop="dateCreated datePublished" datetime="2020-07-05T20:00:00+00:00">2020-07-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-05 09:46:11" itemprop="dateModified" datetime="2020-08-05T09:46:11+00:00">2020-08-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我们编写js代码时经常遇到复杂逻辑判断的情况，通常大家可以用if/else或者switch来实现多个条件判断，但这样会有个问题，随着逻辑复杂度的增加，代码中的if/else/switch会变得越来越臃肿，越来越看不懂，那么如何更优雅的写判断逻辑，本文带你试一下。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/05/JavaScript%20%E5%A4%8D%E6%9D%82%E5%88%A4%E6%96%AD%E7%9A%84%E6%9B%B4%E4%BC%98%E9%9B%85%E5%86%99%E6%B3%95/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/04/js%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="April">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="April的个人小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/04/js%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="post-title-link" itemprop="url">js防抖和节流</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-04 20:00:00" itemprop="dateCreated datePublished" datetime="2020-07-04T20:00:00+00:00">2020-07-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-05 09:46:11" itemprop="dateModified" datetime="2020-08-05T09:46:11+00:00">2020-08-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在进行窗口的resize、scroll，输入框内容校验等操作时，如果事件处理函数调用的频率无限制，会加重浏览器的负担，导致用户体验非常糟糕。此时我们可以采用debounce（防抖）和throttle（节流）的方式来减少调用频率，同时又不影响实际效果。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/04/js%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/04/web%20worker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="April">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="April的个人小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/04/web%20worker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Web Worker 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-04 20:00:00" itemprop="dateCreated datePublished" datetime="2020-07-04T20:00:00+00:00">2020-07-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-05 09:46:11" itemprop="dateModified" datetime="2020-08-05T09:46:11+00:00">2020-08-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>JavaScript 语言采用的是单线程模型，也就是说，所有任务只能在一个线程上完成，一次只能做一件事。前面的任务没做完，后面的任务只能等着。随着电脑计算能力的增强，尤其是多核 CPU 的出现，单线程带来很大的不便，无法充分发挥计算机的计算能力。</p>
-<p>Web Worker 的作用，就是为 JavaScript 创造多线程环境，允许主线程创建 Worker 线程，将一些任务分配给后者运行。在主线程运行的同时，Worker 线程在后台运行，两者互不干扰。等到 Worker 线程完成计算任务，再把结果返回给主线程。这样的好处是，一些计算密集型或高延迟的任务，被 Worker 线程负担了，主线程（通常负责 UI 交互）就会很流畅，不会被阻塞或拖慢。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/04/web%20worker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -791,6 +422,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件放在合适的位置。"><span class="nav-number">1.</span> <span class="nav-text">文件放在合适的位置。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#精简html代码，"><span class="nav-number">2.</span> <span class="nav-text">精简html代码，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增强用户体验"><span class="nav-number">3.</span> <span class="nav-text">增强用户体验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提升css渲染性能"><span class="nav-number">4.</span> <span class="nav-text">提升css渲染性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合理使用CSS选择器"><span class="nav-number">5.</span> <span class="nav-text">合理使用CSS选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#精简css代码"><span class="nav-number">6.</span> <span class="nav-text">精简css代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合理使用Web-Fonts"><span class="nav-number">7.</span> <span class="nav-text">合理使用Web Fonts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Css动画优化"><span class="nav-number">8.</span> <span class="nav-text">Css动画优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS优化总体原则"><span class="nav-number">9.</span> <span class="nav-text">JS优化总体原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Js变量和函数优化"><span class="nav-number">10.</span> <span class="nav-text">Js变量和函数优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提升js文件加载性能"><span class="nav-number">11.</span> <span class="nav-text">提升js文件加载性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Js动画优化"><span class="nav-number">12.</span> <span class="nav-text">Js动画优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合理使用缓存"><span class="nav-number">13.</span> <span class="nav-text">合理使用缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-JavaScript：如何对JavaScript进行缓存优化"><span class="nav-number"></span> <span class="nav-text">9 JavaScript：如何对JavaScript进行缓存优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie"><span class="nav-number">1.</span> <span class="nav-text">Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Session-storage"><span class="nav-number">2.</span> <span class="nav-text">Session storage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IndexedDB"><span class="nav-number">3.</span> <span class="nav-text">IndexedDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-storage"><span class="nav-number">4.</span> <span class="nav-text">Local storage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS模块化加载方案和选型"><span class="nav-number">5.</span> <span class="nav-text">JS模块化加载方案和选型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Css"><span class="nav-number">6.</span> <span class="nav-text">Css</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-DOM编程优化：怎样控制DOM大小并简化DOM操作"><span class="nav-number"></span> <span class="nav-text">12 DOM编程优化：怎样控制DOM大小并简化DOM操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#控制DOM大小"><span class="nav-number">1.</span> <span class="nav-text">控制DOM大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简化DOM操作"><span class="nav-number">2.</span> <span class="nav-text">简化DOM操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13静态文件：有哪些常用的压缩工具？"><span class="nav-number"></span> <span class="nav-text">13静态文件：有哪些常用的压缩工具？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态文件压缩工具介绍"><span class="nav-number">1.</span> <span class="nav-text">静态文件压缩工具介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态文件打包方案"><span class="nav-number">2.</span> <span class="nav-text">静态文件打包方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态文件-版本号更新-你应该遵循哪些策略"><span class="nav-number"></span> <span class="nav-text">静态文件:版本号更新,你应该遵循哪些策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态文件版本号更新策略"><span class="nav-number">1.</span> <span class="nav-text">静态文件版本号更新策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端构建工具介绍和选型建议"><span class="nav-number">2.</span> <span class="nav-text">前端构建工具介绍和选型建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack打包优化"><span class="nav-number">3.</span> <span class="nav-text">webpack打包优化</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
