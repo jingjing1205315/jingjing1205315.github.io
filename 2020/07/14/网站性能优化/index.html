@@ -22,17 +22,17 @@
 
   <meta name="description" content="文件放在合适的位置。*Css样式文件链接尽量放在头部Css加载不会阻碍DOM tree解析，但是会阻塞到DOM tree渲染，也会阻塞后面js执行。任何body元素之前，可以确保在文档部分中解析了所有的css样式（内联和外联），从而减少了浏览器必须重排文档的次数，如果放置页面底部，就要等待最后一个css文件下载完成，此时会出现“白屏”影响用户体验。 *Js引用放在html底部防止js的加载、解析、">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网站性能优化">
-<meta property="og:url" content="http://yoursite.com/2020/08/05/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:title" content="Web Worker 使用教程">
+<meta property="og:url" content="http://yoursite.com/2020/07/14/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="April的个人小站">
 <meta property="og:description" content="文件放在合适的位置。*Css样式文件链接尽量放在头部Css加载不会阻碍DOM tree解析，但是会阻塞到DOM tree渲染，也会阻塞后面js执行。任何body元素之前，可以确保在文档部分中解析了所有的css样式（内联和外联），从而减少了浏览器必须重排文档的次数，如果放置页面底部，就要等待最后一个css文件下载完成，此时会出现“白屏”影响用户体验。 *Js引用放在html底部防止js的加载、解析、">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-05T09:46:11.324Z">
-<meta property="article:modified_time" content="2020-08-05T09:46:11.324Z">
+<meta property="article:published_time" content="2020-07-14T20:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-05T10:56:45.852Z">
 <meta property="article:author" content="April">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/08/05/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+<link rel="canonical" href="http://yoursite.com/2020/07/14/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>网站性能优化 | April的个人小站</title>
+  <title>Web Worker 使用教程 | April的个人小站</title>
   
 
 
@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -164,7 +164,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          网站性能优化
+          Web Worker 使用教程
         </h1>
 
         <div class="post-meta">
@@ -174,8 +174,15 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-08-05 09:46:11" itemprop="dateCreated datePublished" datetime="2020-08-05T09:46:11+00:00">2020-08-05</time>
+              <time title="Created: 2020-07-14 20:00:00" itemprop="dateCreated datePublished" datetime="2020-07-14T20:00:00+00:00">2020-07-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-05 10:56:45" itemprop="dateModified" datetime="2020-08-05T10:56:45+00:00">2020-08-05</time>
+              </span>
 
           
 
