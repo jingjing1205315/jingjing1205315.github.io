@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="跨域的几种方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨域">
+<meta property="og:url" content="http://yoursite.com/2020/09/10/%E8%B7%A8%E5%9F%9F/index.html">
+<meta property="og:site_name" content="April的个人小站">
+<meta property="og:description" content="跨域的几种方式">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-10T08:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-07T09:06:56.984Z">
+<meta property="article:author" content="April">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/09/10/%E8%B7%A8%E5%9F%9F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh_CN'
+  };
+</script>
+
+  <title>跨域 | April的个人小站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="April的个人小站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">April的个人小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/10/%E8%B7%A8%E5%9F%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="April">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="April的个人小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          跨域
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-10 08:00:00" itemprop="dateCreated datePublished" datetime="2020-09-10T08:00:00+00:00">2020-09-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-07 09:06:56" itemprop="dateModified" datetime="2020-09-07T09:06:56+00:00">2020-09-07</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>跨域的几种方式</p>
+<a id="more"></a>
+<p>同源：<br>协议相同<br>域名相同<br>端口相同</p>
+<p>非同源限制<br>LocalStore 和 IndexDB 无法读取。这两个显然是不能读取的，但是 cookie 有点不一样，放在后面单独说明<br>DOM 无法获取,比如如法在页面 A 中通过 iframe 获取异源页面 B 的 DOM<br>AJAX 请求无法读取（可以发送请求，但是无法读取到请求结果。比如在页面 A 中请求异源接口 B，请求会正常发出处理，但是在页面 A 中无法获取请求结果，除非响应头 Access-Control-Allow-Headers 中允许了页面 A 的源，这样就能读取到结果）<br>  但是这里有个例外，所有带“src”属性的标签都可以跨域加载资源，不受同源策略的限制，这样你应该可以想到一个比较古老的跨域解决方案（JSONP）,同时这个特性也会被用作 CSRF 攻击。</p>
+<h3 id="1-JS设置document-domain实现跨域—iframe-DOM操作"><a href="#1-JS设置document-domain实现跨域—iframe-DOM操作" class="headerlink" title="1 JS设置document.domain实现跨域—iframe DOM操作"></a>1 JS设置document.domain实现跨域—iframe DOM操作</h3><p>这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用document.domain进行跨域.<br>Javascript出于对安全性的考虑，而禁止两个或者多个不同域的页面进行互相操作。<br>相同域的页面在相互操作的时候不会有任何问题。</p>
+<p>有另一种情况，两个子域名：<br>aaa.xxx.com<br>bbb.xxx.com<br>aaa里的一个网页(a.html)引入了bbb 里的一个网页(b.html)<br>通过Javascript，将两个页面的domain改成一样的，<br>需要在a.html里与b.html里都加入：</p>
+<p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.domain &#x3D; &quot;***.net&quot;</span><br></pre></td></tr></table></figure>
+<p>这样这两个页面就可以互相操作了。也就是实现了同一基础域名之间的”跨域”。</p>
+<h3 id="http-请求跨域"><a href="#http-请求跨域" class="headerlink" title="http 请求跨域"></a>http 请求跨域</h3><p> 在前端开发中经常会遇到跨域的问题，比如前后端分离中前后端部署在不同的端口上，或者在前端页面中需要向另外一个服务请求数据，这些都会被跨域所阻挡。<br>目前主要有以下几种办法解决跨域问题：</p>
+<p>1、关闭浏览器同源检查(方法：<a href="https://blog.csdn.net/cgs1999/article/details/90751757" target="_blank" rel="noopener">https://blog.csdn.net/cgs1999/article/details/90751757</a>)<br>  这个太暴力，也太不安全了，不用考虑。</p>
+<p>2、jsonp 实现跨域请求<br>  前面说过了浏览器对于带 src 属性的标签都可以跨域的。因此 jsonp 的实现流失利用了这个特性，在页面中动态插入一个<script>标签,然后他的 src 属性就是接口调用地址，这样就能访问过去了，然后再讲返回内容特殊处理成立即执行的函数，这样就看起像进行了一次跨域请求。之所以不推荐这种方式，主要有以下两个原因：</p>
+<p>1) 实现复杂,且需要前后台同时修改才能实现<br>2)只能进行 get 请求</p>
+<p>3、服务器设置运行跨域<br>  这种方法只需要后台做处理便能实现跨域，前面说的 http 跨域请求是能够发出去的，只是不能接收，那我们只要在响应头Access-Control-Allow-Headers中加入允许请求的地址即可，以,分隔，同时*代表所有地址都允许。比如：
+  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Headers:http:&#x2F;&#x2F;localhost:8081,http:&#x2F;&#x2F;localhost:8082</span><br></pre></td></tr></table></figure>
+
+<p>本方法是较为常用的一种跨域办法,只需简单修改服务端代码即可。</p>
+<p>4、请求代理<br>  这也是非常常用的一种跨域方法。跨域限制只是浏览器限制，服务端并没有这个概念，因此我们在前端还是请求同域地址，然后在服务端做一个代理，将请求转发到真正的 ip 和端口上。通常使用 nginx 实现端口转发，比如下面一段 nginx 配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    # &#x2F;test1&#x2F;abc 转发到 http:&#x2F;&#x2F;a.com:8011&#x2F;abc</span><br><span class="line">    location &#x2F;test1&#x2F; &#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;a.com:8011&#x2F;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # &#x2F;test2&#x2F;abc 转发到 http:&#x2F;&#x2F;b.com:8011&#x2F;main&#x2F;abc</span><br><span class="line">    location &#x2F;test2&#x2F; &#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;b.com:8011&#x2F;main&#x2F;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # &#x2F;test3&#x2F;abc 转发到 http:&#x2F;&#x2F;c.com:8011&#x2F;test3&#x2F;abc</span><br><span class="line">    location &#x2F;test3&#x2F; &#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;c.com:8081;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="cookie-同源策略-仅限制域名"><a href="#cookie-同源策略-仅限制域名" class="headerlink" title="cookie 同源策略(仅限制域名)"></a>cookie 同源策略(仅限制域名)</h3><p>cookie 的同源策略是通过“Domain“和“path“两个部分来共同确认一个 cookie 在哪些页面上可用。</p>
+<p>1、设置cookie的domaim和path<br>Domain确定这个 cookie 所属的域名，不能带端口或协议。因此 cookie 便可在不同端口/不同协议下共享,只要域名相同。有一个例外是父子域名间也能共享 cookie，只需将 Domain 设置为.父域名或者父域名（不带.）。<strong><em>domain设为主域名即baidu.com或者.baidu.com,那么cookie在任何百度的子域名下都可共享</em></strong> <a href="http://www.baidu.com仅是baidu.com的子域名，同样受限制。" target="_blank" rel="noopener">www.baidu.com仅是baidu.com的子域名，同样受限制。</a></p>
+<p>  path就简单多了，通过 Domain 确定哪些域名可以共享 cookie，然后在通过path来确定 cookie 在哪些路径下可用。使用/表示所有路径都可共享。</p>
+<p>具体如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Domain : example,path : &#x2F;a可获取 cookie:http:&#x2F;&#x2F;example:8081&#x2F;a,https:&#x2F;&#x2F;example:8081&#x2F;a</span><br><span class="line">Domain : example,path : &#x2F;可获取 cookie:http:&#x2F;&#x2F;example:8081&#x2F;a,https:&#x2F;&#x2F;example:8081&#x2F;a , http:&#x2F;&#x2F;example:12&#x2F;abcd</span><br><span class="line">Domain : .example,path : &#x2F;a可获取 cookie:http:&#x2F;&#x2F;example:8081&#x2F;a , https:&#x2F;&#x2F;localhost:8081&#x2F;a , http:&#x2F;&#x2F;test.example:889&#x2F;a</span><br><span class="line"></span><br><span class="line">注意:在跨域请求中，即时目标地址有 cookie 且发起请求的页面也能读取到该 cookie，浏览器也不会将 cookie 自动设置到该跨域请求中。比如在http:&#x2F;&#x2F;localhost:8082&#x2F;a页面中请求http:&#x2F;&#x2F;localhost:8081&#x2F;abc,这两个地址下拥有共享cookie，http请求也不会携带cookie。</span><br></pre></td></tr></table></figure>
+<p>2、设置反向代理，使两个页面位于同一domain和path下。<br>3、jsonp方法<br>文件a/b处于相同域下，不同路径，设置的cookie在b路径下。<br>a.html访问b路径下的jsonp文件。此jsonp文件可以访问b下的cookie。同时可以设置cookie的路径为a。这样a就可以拿到b下的cookie。</p>
+<p>猜测（未经实验）：a通过jsonp请求不用b域上的文件。那个文件能拿到b域上的cookie。回传给a，就可以试想cookie的跨域访问<br>4、nodejs superagent（可参考下方参考文章）<br>5、同一域下，不同工程之间cookie携带<br>（1）. 使用jsonp格式发送<br>（2）. ajax请求中加上字段 xhrFields: {withCredentials: true}，这样可以携带上cookie。这样后台配置就出现了限制，需要配置一个解决跨域访问的过滤器，而且header字段Access-Control-Allow-Origin的值不能为"*", 必须是一个确定的域。</p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://www.cnblogs.com/lonelyshy/p/10179762.html" target="_blank" rel="noopener">https://www.cnblogs.com/lonelyshy/p/10179762.html</a><br><a href="https://www.cnblogs.com/wuyoucao/p/11075435.html" target="_blank" rel="noopener">https://www.cnblogs.com/wuyoucao/p/11075435.html</a></p>
+<p><a href="https://www.cnblogs.com/hujunzheng/p/5744755.html" target="_blank" rel="noopener">https://www.cnblogs.com/hujunzheng/p/5744755.html</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/20/Module%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0/" rel="prev" title="Module的加载实现学习">
+      <i class="fa fa-chevron-left"></i> Module的加载实现学习
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JS设置document-domain实现跨域—iframe-DOM操作"><span class="nav-number">1.</span> <span class="nav-text">1 JS设置document.domain实现跨域—iframe DOM操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-请求跨域"><span class="nav-number">2.</span> <span class="nav-text">http 请求跨域</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">April</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">April</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
