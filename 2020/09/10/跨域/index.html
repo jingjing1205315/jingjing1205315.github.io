@@ -28,7 +28,7 @@
 <meta property="og:description" content="跨域的几种方式">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-10T08:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-09T11:09:44.865Z">
+<meta property="article:modified_time" content="2020-09-09T11:12:01.905Z">
 <meta property="article:author" content="April">
 <meta name="twitter:card" content="summary">
 
@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-09 11:09:44" itemprop="dateModified" datetime="2020-09-09T11:09:44+00:00">2020-09-09</time>
+                <time title="Modified: 2020-09-09 11:12:01" itemprop="dateModified" datetime="2020-09-09T11:12:01+00:00">2020-09-09</time>
               </span>
 
           
@@ -206,7 +206,7 @@
 <p>这样这两个页面就可以互相操作了。也就是实现了同一基础域名之间的”跨域”。</p>
 <h3 id="http-请求跨域"><a href="#http-请求跨域" class="headerlink" title="http 请求跨域"></a>http 请求跨域</h3><p> 在前端开发中经常会遇到跨域的问题，比如前后端分离中前后端部署在不同的端口上，或者在前端页面中需要向另外一个服务请求数据，这些都会被跨域所阻挡。<br>目前主要有以下几种办法解决跨域问题：</p>
 <p>1、关闭浏览器同源检查(方法：<a href="https://blog.csdn.net/cgs1999/article/details/90751757" target="_blank" rel="noopener">https://blog.csdn.net/cgs1999/article/details/90751757</a>)<br>  这个太暴力，也太不安全了，不用考虑。</p>
-<p>2、jsonp 实现跨域请求<br>  前面说过了浏览器对于带 src 属性的标签都可以跨域的。因此 jsonp 的实现流失利用了这个特性，在页面中动态插入一个<script>标签,然后他的 src 属性就是接口调用地址，这样就能访问过去了，然后再讲返回内容特殊处理成立即执行的函数，这样就看起像进行了一次跨域请求。之所以不推荐这种方式，主要有以下两个原因：</p>
+<p>2、jsonp 实现跨域请求<br>  前面说过了浏览器对于带 src 属性的标签都可以跨域的。因此 jsonp 的实现流失利用了这个特性，在页面中动态插入一个<code>&lt;script/&gt;</code>标签,然后他的 src 属性就是接口调用地址，这样就能访问过去了，然后再讲返回内容特殊处理成立即执行的函数，这样就看起像进行了一次跨域请求。之所以不推荐这种方式，主要有以下两个原因：</p>
 <p>1) 实现复杂,且需要前后台同时修改才能实现<br>2)只能进行 get 请求</p>
 <p>3、服务器设置运行跨域<br>  这种方法只需要后台做处理便能实现跨域，前面说的 http 跨域请求是能够发出去的，只是不能接收，那我们只要在响应头Access-Control-Allow-Headers中加入允许请求的地址即可，以,分隔，同时*代表所有地址都允许。比如：
   </p>
@@ -222,7 +222,7 @@
 <p>具体如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Domain : example,path : &#x2F;a可获取 cookie:http:&#x2F;&#x2F;example:8081&#x2F;a,https:&#x2F;&#x2F;example:8081&#x2F;a</span><br><span class="line">Domain : example,path : &#x2F;可获取 cookie:http:&#x2F;&#x2F;example:8081&#x2F;a,https:&#x2F;&#x2F;example:8081&#x2F;a , http:&#x2F;&#x2F;example:12&#x2F;abcd</span><br><span class="line">Domain : .example,path : &#x2F;a可获取 cookie:http:&#x2F;&#x2F;example:8081&#x2F;a , https:&#x2F;&#x2F;localhost:8081&#x2F;a , http:&#x2F;&#x2F;test.example:889&#x2F;a</span><br><span class="line"></span><br><span class="line">注意:在跨域请求中，即时目标地址有 cookie 且发起请求的页面也能读取到该 cookie，浏览器也不会将 cookie 自动设置到该跨域请求中。比如在http:&#x2F;&#x2F;localhost:8082&#x2F;a页面中请求http:&#x2F;&#x2F;localhost:8081&#x2F;abc,这两个地址下拥有共享cookie，http请求也不会携带cookie。</span><br></pre></td></tr></table></figure>
 <p>2、设置反向代理，使两个页面位于同一domain和path下。<br>3、jsonp方法<br>文件a/b处于相同域下，不同路径，设置的cookie在b路径下。<br>a.html访问b路径下的jsonp文件。此jsonp文件可以访问b下的cookie。同时可以设置cookie的路径为a。这样a就可以拿到b下的cookie。</p>
-<p>猜测（未经实验）：a通过jsonp请求不用b域上的文件。那个文件能拿到b域上的cookie。回传给a，就可以试想cookie的跨域访问<br>4、nodejs superagent（可参考下方参考文章）<br>5、同一域下，不同工程之间cookie携带<br>（1）. 使用jsonp格式发送<br>（2）. ajax请求中加上字段 xhrFields: {withCredentials: true}，这样可以携带上cookie。这样后台配置就出现了限制，需要配置一个解决跨域访问的过滤器，而且header字段Access-Control-Allow-Origin的值不能为"*", 必须是一个确定的域。</p>
+<p>猜测（未经实验）：a通过jsonp请求不用b域上的文件。那个文件能拿到b域上的cookie。回传给a，就可以试想cookie的跨域访问<br>4、nodejs superagent（可参考下方参考文章）<br>5、同一域下，不同工程之间cookie携带<br>（1）. 使用jsonp格式发送<br>（2）. ajax请求中加上字段 xhrFields: {withCredentials: true}，这样可以携带上cookie。这样后台配置就出现了限制，需要配置一个解决跨域访问的过滤器，而且header字段Access-Control-Allow-Origin的值不能为”*”, 必须是一个确定的域。</p>
 <h3 id="image跨域"><a href="#image跨域" class="headerlink" title="image跨域"></a>image跨域</h3><p>在页面上src加载图片资源无跨域问题。但canvas绘图时，加载的资源图和当前域名不使同一域名时，就会加载不出来。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">img.src&#x3D;&quot;shareImages&#x2F;cz.jpg&quot;;</span><br><span class="line">        img2.src&#x3D;app25.newLevelImage;&#x2F;&#x2F;图片的路径</span><br><span class="line">&#x2F;&#x2F; 解决图片的跨域问题</span><br><span class="line">image.setAttribute(&quot;crossOrigin&quot;,&#39;anonymous&#39;)    &#x2F;&#x2F; 添加改代码， 防止跨域</span><br><span class="line">  image.src &#x3D;  item.src + &#39;?v&#x3D;3&#39; ;   &#x2F;&#x2F;添加后缀， 防止缓存；</span><br></pre></td></tr></table></figure>
 
@@ -312,7 +312,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JS设置document-domain实现跨域—iframe-DOM操作"><span class="nav-number">1.</span> <span class="nav-text">1 JS设置document.domain实现跨域—iframe DOM操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-请求跨域"><span class="nav-number">2.</span> <span class="nav-text">http 请求跨域</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JS设置document-domain实现跨域—iframe-DOM操作"><span class="nav-number">1.</span> <span class="nav-text">1 JS设置document.domain实现跨域—iframe DOM操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-请求跨域"><span class="nav-number">2.</span> <span class="nav-text">http 请求跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie-同源策略-仅限制域名"><span class="nav-number">3.</span> <span class="nav-text">cookie 同源策略(仅限制域名)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#image跨域"><span class="nav-number">4.</span> <span class="nav-text">image跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-number">5.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
