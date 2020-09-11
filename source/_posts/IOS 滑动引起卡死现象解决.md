@@ -64,6 +64,28 @@ content{
 
 哦，上文所写的参考文章中动态添加元素啥的，也并没有影响。我的页面中container里的内容都是vue动态渲染的，也不需要设置子元素height为100%+1之类的。但文章依然有参考价值。可以深入了解-webkit-overflow-scrolling，知其然和所以然。
 
+*---------------------------------------
+然而，在监听scroll事件拿到scrollTop时，又出现问题……
+
+以上面的布局为例，原来我的overflow-y是写到container(height是100%)上的，这样监听container就可以了。拿container元素的scrollTop就可以了。
+
+现在overflow-y加到了content(height为3000px)上
+
+```
+// 可以
+document.onscroll = () => { 
+    console.log(111);
+    console.log(document.body.scrollTop || document.documentElement.scrollTop);
+};
+
+// 可以
+window.onscroll = () => { console.log(111)
+    console.log(document.body.scrollTop || document.documentElement.scrollTop);
+};
+
+```
+就需要监听document或者window了。
+
 
 以下为20200908所写 --------------------------------
 
