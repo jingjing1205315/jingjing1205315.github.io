@@ -1,5 +1,5 @@
 ---
-title: IOS滑动引起卡死现象解决
+title: IOS滑动引起卡死现象解决及fixed定位元素抖动问题
 date: 2020-09-08 20:00:00
 tags: 
 ---
@@ -13,6 +13,59 @@ tags:
 
 <!--more-->
 困扰我已久，终于有个说的明白的人了！建议先阅读[深入研究-webkit-overflow-scrolling:touch及ios滚动](https://www.cnblogs.com/xiahj/p/8036419.html)，如果未能解决您的问题，接着往下看！
+
+20200911 -------------------------------
+20200908发现的解决方案，是能解决问题，但实际操作的时候，还需要精确判断页面渲染完成的时间。增加无谓的消耗。
+于是深入研究了一下其它网站（其实是竞品），为什么人家好像也没有特殊处理，反而没有这个bug呢。
+
+以下是实现：
+
+```
+<html>
+    <body>
+        <div class="container">
+            <header>
+            <div class="content">
+                内容
+                内容
+                很多内容
+            </div>
+            <footer>
+        
+```
+html和body的height都是100%(比如672px)
+
+header和footer是fixed定位。
+
+container被content撑起来了，比如高度都是3000px;
+
+就是很普通的布局，但为什么我的页面会出现问题呢？
+
+重点来了：
+
+设置content的css，overflow-y和-webkit-overflow-scrolling一定要设置在 content上。
+
+```
+content{
+    ···
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+```
+
+***
+**重点是：
+1、overflow-y和-webkit-overflow-scrolling的设置位置是content，并不是body。
+2、container body html上都不能设置overflow-y：scroll**
+
+***
+
+然后，问题一二三都解决了。完美！
+
+哦，上文所写的参考文章中动态添加元素啥的，也并没有影响。我的页面中container里的内容都是vue动态渲染的，也不需要设置子元素height为100%+1之类的。但文章依然有参考价值。可以深入了解-webkit-overflow-scrolling，知其然和所以然。
+
+
+以下为20200908所写 --------------------------------
 
 ### 问题三解决：---回弹时header和footer不会被遮挡
 
