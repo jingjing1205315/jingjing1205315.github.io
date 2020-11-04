@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>网页性能优化</title>
+      <link href="/2020/11/01/%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+      <url>/2020/11/01/%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<p>页面速度和访客的滞留时间，跳出率以及收入都有直接的关系。<br>小于2秒的页载入时间被认为是优良的，而且高达4秒是可接受的。而大于5秒的页面载入时间不仅影响你网站的搜索引擎排名，还会严重影响用户体验。<br>网页性能优化分为很多维度，在各个维度我们需要做什么？</p><a id="more"></a><h3 id="一、网络"><a href="#一、网络" class="headerlink" title="一、网络"></a>一、网络</h3><p>1、减少DNS<br>域名解析的时候页面是没有任何反应的，需要解析的域名越多，页面加载时长会越长。</p><p>2、减少请求<br>1）css sprite<br>2）小图片转为base64<br>3）使用浏览器缓存</p><p>3、优化TCP协议<br>1）TCP连接复用，使用keep-alive：连接回复加上请求头：keep-alive。第一次请求不断开，第二次请求复用。<br>2）使用http 2.0版本：多路复用，连接复用率会更高</p><p>4、同时发送多个请求（浏览器自带）IE8可以同时请求下载4个的css文件，Chrome可以同时请求下载8个 。</p><p>5、减小cookie体积，每个请求都会附带cookie，所以不要滥用cookie。</p><h3 id="二、服务器"><a href="#二、服务器" class="headerlink" title="二、服务器"></a>二、服务器</h3><p>1、使用CDN<br>2、接口keep-alive<br>3、最小化重定向<br>4、Accept-Encoding: gzip, deflate</p><h3 id="三、渲染"><a href="#三、渲染" class="headerlink" title="三、渲染"></a>三、渲染</h3><p>1、减少回流和重绘</p><p>2、懒加载、预加载</p><h3 id="四、图片"><a href="#四、图片" class="headerlink" title="四、图片"></a>四、图片</h3><p>1、选择正确的格式。<br>1）最适合网页的格式是webp<br>2）色彩多适宜用jpg<br>3）半透明、透明图片适宜用png<br>4）动图适宜用gif<br>2、选择合适的尺寸<br>2、压缩图片<br>有很多工具可以压缩图片，压缩的程度需与视觉效果做权衡<br>3、能用文字代替最好用文字</p><h3 id="五、js"><a href="#五、js" class="headerlink" title="五、js"></a>五、js</h3><p>1、压缩js<br>去掉注释、空格等多余的行，减少js的大小；<br>长变量名用简单的字母代替，使用压缩工具可以实现</p><p>2、减少不必要的引用<br>一个文件只需要引用一次</p><p>3、去掉不必要的插件</p><p>4、Ajax的get可缓存</p><p>5、减少监听器，使用事件委托</p><p>6、减少或合并DOM操作或使用虚拟DOM</p><p>7、对大量数据计算使用缓存</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(var i &#x3D; 0,len &#x3D; data.length;i &lt; len;i++)&#123;</span><br><span class="line">     &#x2F;&#x2F; do something...</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><h3 id="六、html"><a href="#六、html" class="headerlink" title="六、html"></a>六、html</h3><p>1、减少嵌套层级</p><p>2、css放在head中，js放在最后</p><h3 id="七、css"><a href="#七、css" class="headerlink" title="七、css"></a>七、css</h3><p>1、避免CSS表达式<br>2、压缩<br>3、精简（合并相同的属性、删除不用的class）</p><h3 id="八、优化用户体验"><a href="#八、优化用户体验" class="headerlink" title="八、优化用户体验"></a>八、优化用户体验</h3><p>用户看到哪些内容就请求哪些内容<br>加一个loading动画用户会感觉时间变快</p><p>参考文章：<br><a href="https://www.diybloghome.com/frontlogy/1036.html" target="_blank" rel="noopener">10种优化页面加载速度的方法</a><br><a href="https://www.cnblogs.com/yzhihao/p/9385467.html" target="_blank" rel="noopener">Web前端性能优化——如何提高页面加载速度</a><br><a href="https://zhuanlan.zhihu.com/p/59681837" target="_blank" rel="noopener">web前端性能优化——如何提高页面加载速度</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mac du disk usage命令统计文件夹大小</title>
       <link href="/2020/10/31/mac%20du%E5%91%BD%E4%BB%A4%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%A7%E5%B0%8F/"/>
       <url>/2020/10/31/mac%20du%E5%91%BD%E4%BB%A4%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%A7%E5%B0%8F/</url>
