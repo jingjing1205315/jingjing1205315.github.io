@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>postman 使用</title>
+      <link href="/2020/11/18/postman%20%E4%BD%BF%E7%94%A8/"/>
+      <url>/2020/11/18/postman%20%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p>Postman是一款功能强大的接口调试工具</p><a id="more"></a><p>1、发送put、get、post请求</p><p>2、Headers设置</p><p>3、Body：post请求时必须要带的参数，里面放一些key-value键值对</p><p>4、params：get请求的参数出现在这里</p><p>5、tests检测response</p><p>6、Pre-requerst Script请求前设置请求数据<br>7、设置全局变量、环境变量</p><p>8、文件夹run自动化测试</p><p>参考文章：<br><a href="https://www.jianshu.com/p/97ba64888894" target="_blank" rel="noopener">Postman教程大全</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网页性能优化</title>
       <link href="/2020/11/01/%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
       <url>/2020/11/01/%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
