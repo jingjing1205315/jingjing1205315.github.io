@@ -146,6 +146,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/26/hexo-github%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="April">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="April的个人小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/26/hexo-github%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">hexo+github上传图片到博客(知识搬运)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-11-26 18:03:10 / Modified: 11:13:27" itemprop="dateCreated datePublished" datetime="2020-11-26T18:03:10+00:00">2020-11-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>1、cd到博客根目录下 查看_config.yml文件 查找 post_asset_folder 字段确定post_asset_folder 设置为true -&gt; post_asset_folder:true</p>
+<p>2、当您设置 post_asset_folder 参数后，在建立文件时，Hexo 会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到此文件夹内，这样就可以更方便的使用资源。</p>
+<p>3、到博客的根目录下执行以下命令来进行插件的安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https:&#x2F;&#x2F;github.com&#x2F;CodeFalling&#x2F;hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>4、然后创建一文章 hexo new “test” 然后查看博客的 ../source/_posts 目录下的文件，会看到存在一个test 文件夹 和 test.md 文件<br><img style="margin:0" src="/2020/11/26/hexo-github%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/203414-3e5d297effdff3d6.webp"></p>
+<p>5、将所需要的图片资源放到test 文件夹 内 目录结构如下：<br><img style="margin:0" src="/2020/11/26/hexo-github%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/203414-7a4566f5a8901158.webp"></p>
+<p>6、书写文章使用test文件内 的图片<br><img style="margin:0" src="/2020/11/26/hexo-github%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/203414-670dc6930c83cb4c.webp"></p>
+<p>7、使用hexo s 命令运行本地博客如图<br><img style="margin:0" src="/2020/11/26/hexo-github%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/203414-26eb8fcdcd17ceee.webp"></p>
+<p>8、使用hexo clean hexo g hexo deploy 将本地博客推送到远程，即可看到文章中的图片。<br>✅Done！</p>
+<p>9、看效果不是很满意，图片居中，很丑。需html语法让图片居左。由于编译器给img加了margin:0 auto，还是会居中，需在设置一下style</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img style&#x3D;&quot;margin:0&quot; src&#x3D;&quot;hexo-github上传图片到博客&#x2F;203414-26eb8fcdcd17ceee.webp&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>作者：iOS收藏家<br>链接：<a href="https://www.jianshu.com/p/8d28027fec76" target="_blank" rel="noopener">https://www.jianshu.com/p/8d28027fec76</a></p>
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/18/postman%20%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -169,10 +243,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-11-18 00:00:00 / Modified: 12:21:25" itemprop="dateCreated datePublished" datetime="2020-11-18T00:00:00+00:00">2020-11-18</time>
+              <time title="Created: 2020-11-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-18T00:00:00+00:00">2020-11-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-26 11:13:27" itemprop="dateModified" datetime="2020-11-26T11:13:27+00:00">2020-11-26</time>
+              </span>
 
           
 
@@ -243,7 +323,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-18 12:21:25" itemprop="dateModified" datetime="2020-11-18T12:21:25+00:00">2020-11-18</time>
+                <time title="Modified: 2020-11-26 11:13:27" itemprop="dateModified" datetime="2020-11-26T11:13:27+00:00">2020-11-26</time>
               </span>
 
           
@@ -315,7 +395,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-18 12:21:25" itemprop="dateModified" datetime="2020-11-18T12:21:25+00:00">2020-11-18</time>
+                <time title="Modified: 2020-11-26 11:13:27" itemprop="dateModified" datetime="2020-11-26T11:13:27+00:00">2020-11-26</time>
               </span>
 
           
@@ -387,7 +467,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-18 12:21:25" itemprop="dateModified" datetime="2020-11-18T12:21:25+00:00">2020-11-18</time>
+                <time title="Modified: 2020-11-26 11:13:27" itemprop="dateModified" datetime="2020-11-26T11:13:27+00:00">2020-11-26</time>
               </span>
 
           
@@ -493,7 +573,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-18 12:21:25" itemprop="dateModified" datetime="2020-11-18T12:21:25+00:00">2020-11-18</time>
+                <time title="Modified: 2020-11-26 11:13:27" itemprop="dateModified" datetime="2020-11-26T11:13:27+00:00">2020-11-26</time>
               </span>
 
           
@@ -565,7 +645,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-18 12:21:25" itemprop="dateModified" datetime="2020-11-18T12:21:25+00:00">2020-11-18</time>
+                <time title="Modified: 2020-11-26 11:13:27" itemprop="dateModified" datetime="2020-11-26T11:13:27+00:00">2020-11-26</time>
               </span>
 
           
@@ -640,7 +720,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-18 12:21:25" itemprop="dateModified" datetime="2020-11-18T12:21:25+00:00">2020-11-18</time>
+                <time title="Modified: 2020-11-26 11:13:27" itemprop="dateModified" datetime="2020-11-26T11:13:27+00:00">2020-11-26</time>
               </span>
 
           
@@ -711,7 +791,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-18 12:21:25" itemprop="dateModified" datetime="2020-11-18T12:21:25+00:00">2020-11-18</time>
+                <time title="Modified: 2020-11-26 11:13:27" itemprop="dateModified" datetime="2020-11-26T11:13:27+00:00">2020-11-26</time>
               </span>
 
           
@@ -803,7 +883,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-18 12:21:25" itemprop="dateModified" datetime="2020-11-18T12:21:25+00:00">2020-11-18</time>
+                <time title="Modified: 2020-11-26 11:13:27" itemprop="dateModified" datetime="2020-11-26T11:13:27+00:00">2020-11-26</time>
               </span>
 
           
@@ -821,78 +901,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/07/14/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/07/hexo%E5%92%8Ctravis%E5%BB%BAgithub.io%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="April">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="April的个人小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/07/hexo%E5%92%8Ctravis%E5%BB%BAgithub.io%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">hexo和travis建github.io个人博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-07 20:00:00" itemprop="dateCreated datePublished" datetime="2020-07-07T20:00:00+00:00">2020-07-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-18 12:21:25" itemprop="dateModified" datetime="2020-11-18T12:21:25+00:00">2020-11-18</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>hexo和travis建github.io个人博客</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/07/hexo%E5%92%8Ctravis%E5%BB%BAgithub.io%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -981,7 +989,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
