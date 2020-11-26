@@ -20,19 +20,22 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Postman是一款功能强大的接口调试工具">
+  <meta name="description" content="创建密钥首先，进入 nginx 配置目录，创建 openssl 配置文件 req.conf，其中的 CN, DNS.1, DNS.2 等需要替换为自己的域名： 12345678910111213141516171819[req]distinguished_name &#x3D; req_distinguished_namex509_extensions &#x3D; v3_reqprompt &amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="postman 使用">
-<meta property="og:url" content="http://yoursite.com/2020/11/18/postman%20%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="自签名ssl证书生成与使用-知识搬运">
+<meta property="og:url" content="http://yoursite.com/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="April的个人小站">
-<meta property="og:description" content="Postman是一款功能强大的接口调试工具">
+<meta property="og:description" content="创建密钥首先，进入 nginx 配置目录，创建 openssl 配置文件 req.conf，其中的 CN, DNS.1, DNS.2 等需要替换为自己的域名： 12345678910111213141516171819[req]distinguished_name &#x3D; req_distinguished_namex509_extensions &#x3D; v3_reqprompt &amp;#">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-18T00:00:00.000Z">
+<meta property="og:image" content="http://yoursite.com/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/1606391025496.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/1606391344586.jpg">
+<meta property="article:published_time" content="2020-11-26T19:32:46.000Z">
 <meta property="article:modified_time" content="2020-11-26T11:53:12.714Z">
 <meta property="article:author" content="April">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/1606391025496.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2020/11/18/postman%20%E4%BD%BF%E7%94%A8/">
+<link rel="canonical" href="http://yoursite.com/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/">
 
 
 <script id="page-configurations">
@@ -45,7 +48,7 @@
   };
 </script>
 
-  <title>postman 使用 | April的个人小站</title>
+  <title>自签名ssl证书生成与使用-知识搬运 | April的个人小站</title>
   
 
 
@@ -151,7 +154,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/18/postman%20%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -164,7 +167,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          postman 使用
+          自签名ssl证书生成与使用-知识搬运
         </h1>
 
         <div class="post-meta">
@@ -173,16 +176,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-11-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-18T00:00:00+00:00">2020-11-18</time>
+              <time title="Created: 2020-11-26 19:32:46 / Modified: 11:53:12" itemprop="dateCreated datePublished" datetime="2020-11-26T19:32:46+00:00">2020-11-26</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-26 11:53:12" itemprop="dateModified" datetime="2020-11-26T11:53:12+00:00">2020-11-26</time>
-              </span>
 
           
 
@@ -195,18 +192,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Postman是一款功能强大的接口调试工具</p>
-<a id="more"></a>
+        <h3 id="创建密钥"><a href="#创建密钥" class="headerlink" title="创建密钥"></a>创建密钥</h3><p>首先，进入 nginx 配置目录，创建 openssl 配置文件 <strong>req.conf</strong>，其中的 CN, DNS.1, DNS.2 等需要替换为自己的域名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[req]</span><br><span class="line">distinguished_name &#x3D; req_distinguished_name</span><br><span class="line">x509_extensions &#x3D; v3_req</span><br><span class="line">prompt &#x3D; no</span><br><span class="line">[req_distinguished_name]</span><br><span class="line">C &#x3D; US</span><br><span class="line">ST &#x3D; VA</span><br><span class="line">L &#x3D; SomeCity</span><br><span class="line">O &#x3D; MyCompany</span><br><span class="line">OU &#x3D; MyDivision</span><br><span class="line">CN &#x3D; www.company.com</span><br><span class="line">[v3_req]</span><br><span class="line">keyUsage &#x3D; keyEncipherment, dataEncipherment</span><br><span class="line">extendedKeyUsage &#x3D; serverAuth</span><br><span class="line">subjectAltName &#x3D; @alt_names</span><br><span class="line">[alt_names]</span><br><span class="line">DNS.1 &#x3D; www.company.net</span><br><span class="line">DNS.2 &#x3D; company.com</span><br><span class="line">DNS.3 &#x3D; company.net</span><br></pre></td></tr></table></figure>
 
+<p>如果域名较多，且都隶属于同一个主域名，可以将 DNS.1、DNS.2 等简化为 *.example.com。即：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">[alt_names]</span><br><span class="line">DNS.1 &#x3D; *.example.com</span><br></pre></td></tr></table></figure>
+<p>接着，执行如下命令，创建证书：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509 -nodes -days 730 -newkey rsa:2048 -keyout cert.pem -out cert.pem -config req.conf -extensions &#39;v3_req&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="配置-nginx"><a href="#配置-nginx" class="headerlink" title="配置 nginx"></a>配置 nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name www.example.com;</span><br><span class="line">    ssl_certificate cert.pem;</span><br><span class="line">    ssl_certificate_key cert.pem;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        root &#x2F;Users&#x2F;example&#x2F;hello&#x2F;world;</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>服务器证书（ssl_certificate）是一个公开文件，每个请求连接的客户端都会收到一份。私有密钥（ssl_certificate_key）是加密单元，需要存储在保密的地方，但要确保 nginx 主线程可访问。私有密钥一般和证书存储到同一位置。</p>
+<p>cert.pem 就是上一个步骤产生的证书和密钥，在一个文件中。</p>
+<h3 id="配置浏览器"><a href="#配置浏览器" class="headerlink" title="配置浏览器"></a>配置浏览器</h3><p>打开 Chrome 的开发者工具下的【security】选项卡，查看当前的证书，然后下载下来，双击添加到操作系统中，修改为始终信任就可以了。</p>
+<h3 id="采坑"><a href="#采坑" class="headerlink" title="采坑"></a>采坑</h3><p>1、mac-keychain Access 找到对应的证书改为 Always Trust</p>
+<img style="margin: 0 " src="/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/1606391025496.jpg">
 
-<p>1、发送put、get、post请求</p>
-<p>2、Headers设置</p>
-<p>3、Body：post请求时必须要带的参数，里面放一些key-value键值对</p>
-<p>4、params：get请求的参数出现在这里</p>
-<p>5、tests检测response</p>
-<p>6、Pre-requerst Script请求前设置请求数据<br>7、设置全局变量、环境变量</p>
-<p>8、文件夹run自动化测试</p>
-<p>参考文章：<br><a href="https://www.jianshu.com/p/97ba64888894" target="_blank" rel="noopener">Postman教程大全</a></p>
+<p>2、由于我是在原证书中加了一个域名，重新生成的证书，发现刷新、重启浏览器、删除老证书，都不能让本地起的nginx服务变安全。解决方法是重启nginx。配置成功！<br><img style="margin: 0 " src="/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/1606391344586.jpg"></p>
+<h3 id="转载自"><a href="#转载自" class="headerlink" title="转载自"></a>转载自</h3><p><a href="https://www.1zh.tech/2017/12/15/setup-local-https/" target="_blank" rel="noopener">设置本地 nginx 的 HTTPS</a></p>
 
     </div>
 
@@ -222,13 +223,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/11/01/%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="prev" title="网页性能优化">
-      <i class="fa fa-chevron-left"></i> 网页性能优化
+    <a href="/2020/11/26/hexo-github%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/" rel="prev" title="hexo+github上传图片到博客(知识搬运)">
+      <i class="fa fa-chevron-left"></i> hexo+github上传图片到博客(知识搬运)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/11/26/hexo-github%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/" rel="next" title="hexo+github上传图片到博客(知识搬运)">
-      hexo+github上传图片到博客(知识搬运) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -287,6 +285,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建密钥"><span class="nav-number">1.</span> <span class="nav-text">创建密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-nginx"><span class="nav-number">2.</span> <span class="nav-text">配置 nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置浏览器"><span class="nav-number">3.</span> <span class="nav-text">配置浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#采坑"><span class="nav-number">4.</span> <span class="nav-text">采坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转载自"><span class="nav-number">5.</span> <span class="nav-text">转载自</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
