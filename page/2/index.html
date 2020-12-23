@@ -146,6 +146,169 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/05/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%A6%E8%B5%B7%E5%9F%9F%E5%90%8D%E7%9A%84%E6%84%8F%E4%B9%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="April">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="April的个人小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/05/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%A6%E8%B5%B7%E5%9F%9F%E5%90%8D%E7%9A%84%E6%84%8F%E4%B9%89/" class="post-title-link" itemprop="url">静态资源另起域名的意义</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-05 20:00:00" itemprop="dateCreated datePublished" datetime="2020-09-05T20:00:00+00:00">2020-09-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-23 12:58:56" itemprop="dateModified" datetime="2020-12-23T12:58:56+00:00">2020-12-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="为什么图片等静态资源最好单独一个域名"><a href="#为什么图片等静态资源最好单独一个域名" class="headerlink" title="为什么图片等静态资源最好单独一个域名"></a>为什么图片等静态资源最好单独一个域名</h1><p>1、cdn加速</p>
+<p>2、可以单独设置缓存策略</p>
+<p>3、突破浏览器并发限制</p>
+<p>4、降低cookie的流量占用</p>
+<p>5.减少主站压力</p>
+<p>6.单独的低权限域名，即使伪装的病毒也不会造成大的损失。—安全</p>
+<p>7.价格便宜（云存储），相对于服务器</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/20/Module%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="April">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="April的个人小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/20/Module%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">Module的加载实现学习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-20 20:00:00" itemprop="dateCreated datePublished" datetime="2020-07-20T20:00:00+00:00">2020-07-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-23 12:58:56" itemprop="dateModified" datetime="2020-12-23T12:58:56+00:00">2020-12-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>原文 <a href="https://es6.ruanyifeng.com/#docs/module-loader" target="_blank" rel="noopener">ES6标准入门</a></p>
+<h3 id="1-浏览器加载"><a href="#1-浏览器加载" class="headerlink" title="1 浏览器加载"></a>1 浏览器加载</h3><ol>
+<li>script标签多了type=”module”属性可以加载es6的Module.同异步模式是defer。<br>script默认是同步，defer指异步下载，渲染完执行（DOM 结构完全生成，以及其他脚本执行完成）。async指异步下载，下载完终断渲染立即执行。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 外联</span><br><span class="line">&lt;script type&#x3D;&quot;module&quot; src&#x3D;&quot;.&#x2F;foo.js&quot;&gt;</span><br><span class="line">    </span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 内嵌   </span><br><span class="line">&lt;script type&#x3D;&quot;module&quot;&gt;</span><br><span class="line">    import $ from &quot;.&#x2F;jquery&#x2F;src&#x2F;jquery.js&quot;;</span><br><span class="line">    $(&#39;#message&#39;).text(&#39;Hi from jQuery!&#39;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ES6-模块与-CommonJS-模块的差异"><a href="#ES6-模块与-CommonJS-模块的差异" class="headerlink" title="ES6 模块与 CommonJS 模块的差异"></a>ES6 模块与 CommonJS 模块的差异</h3><p>| — | — | —<br>|  | 输出值 | 值的生成 |<br>| — | — | — |<br>| commonJs | 值的拷贝 | 运行时 |<br>| ES6 | 值的引用 | 编译时 |</p>
+<p><strong><em>值的拷贝</em></strong><br>commonJS模块一旦加载，生成的原始类型的的值就不会改变</p>
+<p><strong><em>值的引用–只读</em></strong><br>脚本真正执行时，根据只读引用去拿值，值变，拿到的会跟着变。</p>
+<h3 id="Node-js-加载"><a href="#Node-js-加载" class="headerlink" title="Node.js 加载"></a>Node.js 加载</h3><p>Node.js 要求 ES6 模块采用.mjs后缀文件名</p>
+<p>*注意，ES6 模块与 CommonJS 模块尽量不要混用。require命令不能加载.mjs文件，会报错，只有import命令才可以加载.mjs文件。反过来，.mjs文件里面也不能使用require命令，必须使用import。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;type&quot;: &quot;module&quot;, &#x2F;&#x2F; module时ES6的模块不用.mjs后缀; commonJs时加载commonJS模块不用.cjs后缀。默认commonJS</span><br><span class="line">  &quot;main&quot;: &quot;.&#x2F;src&#x2F;index.js&quot;, &#x2F;&#x2F; 入口文件--优先级低于exports</span><br><span class="line">  &quot;exports&quot;: &#123; 只有支持 ES6 的 Node.js 才认识</span><br><span class="line">   &quot;.&quot;: &quot;.&#x2F;main.js&quot;, &#x2F;&#x2F; main的别名，优先于main</span><br><span class="line">   &quot;.&quot;: &#123; &#x2F;&#x2F; 为 ES6 模块和 CommonJS 指定不同的入口</span><br><span class="line">      &quot;require&quot;: &quot;.&#x2F;main.cjs&quot;,</span><br><span class="line">      &quot;default&quot;: &quot;.&#x2F;main.js&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    &quot;.&#x2F;submodule&quot;: &quot;.&#x2F;src&#x2F;submodule.js&quot; &#x2F;&#x2F; 子目录</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import feature from &#39;es-module-package&#x2F;features&#x2F;x.js&#39;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="ES6-模块加载-CommonJS-模块"><a href="#ES6-模块加载-CommonJS-模块" class="headerlink" title="ES6 模块加载 CommonJS 模块"></a>ES6 模块加载 CommonJS 模块</h4><p>*注意，import命令加载 CommonJS 模块，只能整体加载，不能只加载单一的输出项。<br>还有一种变通的加载方法，就是使用 Node.js 内置的module.createRequire()方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; cjs.cjs</span><br><span class="line">module.exports &#x3D; &#39;cjs&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; esm.mjs</span><br><span class="line">import &#123; createRequire &#125; from &#39;module&#39;;</span><br><span class="line"></span><br><span class="line">const require &#x3D; createRequire(import.meta.url);</span><br><span class="line"></span><br><span class="line">const cjs &#x3D; require(&#39;.&#x2F;cjs.cjs&#39;);</span><br><span class="line">cjs &#x3D;&#x3D;&#x3D; &#39;cjs&#39;; &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="CommonJS-模块加载-ES6-模块"><a href="#CommonJS-模块加载-ES6-模块" class="headerlink" title="CommonJS 模块加载 ES6 模块"></a>CommonJS 模块加载 ES6 模块</h4><p>只能使用import()这个方法加载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(async () &#x3D;&gt; &#123;</span><br><span class="line">  await import(&#39;.&#x2F;my-app.mjs&#39;);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<h4 id="ES6-模块应该是通用的，同一个模块不用修改，就可以用在浏览器环境和服务器环境。"><a href="#ES6-模块应该是通用的，同一个模块不用修改，就可以用在浏览器环境和服务器环境。" class="headerlink" title="ES6 模块应该是通用的，同一个模块不用修改，就可以用在浏览器环境和服务器环境。"></a>ES6 模块应该是通用的，同一个模块不用修改，就可以用在浏览器环境和服务器环境。</h4><p>不要使用<br>this<br>arguments<br>require<br>module<br>exports<br>__filename<br>__dirname</p>
+<h3 id="循环加载"><a href="#循环加载" class="headerlink" title="循环加载"></a>循环加载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; a.js</span><br><span class="line">var b &#x3D; require(&#39;b&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; b.js</span><br><span class="line">var a &#x3D; require(&#39;a&#39;);</span><br></pre></td></tr></table></figure>
+<h4 id="commonJS"><a href="#commonJS" class="headerlink" title="commonJS"></a>commonJS</h4><p>只输出已经执行的部分，还未执行的部分不会输出。<br>b.js接着往下执行，等到全部执行完毕，再把执行权交还给a.js。于是，a.js接着往下执行，直到执行完毕。</p>
+<h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><p>需要开发者自己保证，真正取值的时候能够取到值。</p>
+<p>执行a.js, a中引用b.js，b输入a的接口，这时认为a的接口是存在的，接着执行a的接口。如果a并没有执行到此接口，则会报错。解决方式是将a的此接口提前。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -177,7 +340,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-26 11:53:12" itemprop="dateModified" datetime="2020-11-26T11:53:12+00:00">2020-11-26</time>
+                <time title="Modified: 2020-12-23 12:58:56" itemprop="dateModified" datetime="2020-12-23T12:58:56+00:00">2020-12-23</time>
               </span>
 
           
@@ -249,7 +412,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-26 11:53:12" itemprop="dateModified" datetime="2020-11-26T11:53:12+00:00">2020-11-26</time>
+                <time title="Modified: 2020-12-23 12:58:56" itemprop="dateModified" datetime="2020-12-23T12:58:56+00:00">2020-12-23</time>
               </span>
 
           
@@ -321,7 +484,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-26 11:53:12" itemprop="dateModified" datetime="2020-11-26T11:53:12+00:00">2020-11-26</time>
+                <time title="Modified: 2020-12-23 12:58:56" itemprop="dateModified" datetime="2020-12-23T12:58:56+00:00">2020-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -414,7 +577,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-26 11:53:12" itemprop="dateModified" datetime="2020-11-26T11:53:12+00:00">2020-11-26</time>
+                <time title="Modified: 2020-12-23 12:58:56" itemprop="dateModified" datetime="2020-12-23T12:58:56+00:00">2020-12-23</time>
               </span>
 
           
@@ -486,7 +649,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-26 11:53:12" itemprop="dateModified" datetime="2020-11-26T11:53:12+00:00">2020-11-26</time>
+                <time title="Modified: 2020-12-23 12:58:56" itemprop="dateModified" datetime="2020-12-23T12:58:56+00:00">2020-12-23</time>
               </span>
 
           
@@ -558,7 +721,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-26 11:53:12" itemprop="dateModified" datetime="2020-11-26T11:53:12+00:00">2020-11-26</time>
+                <time title="Modified: 2020-12-23 12:58:56" itemprop="dateModified" datetime="2020-12-23T12:58:56+00:00">2020-12-23</time>
               </span>
 
           
@@ -665,7 +828,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
