@@ -201,4 +201,6 @@ index文件改动了，页面会再写入一条component();
 
 [Webpack 用来做模块热替换(hot module replacement)](https://segmentfault.com/a/1190000003872635)
 
+[模块热替换api](http://www.myjscode.com/page/article109.html)
+
 
