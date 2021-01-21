@@ -5,11 +5,18 @@ tags:
 ---
 
 ---------
+### vim .gitignore
+编辑文件
+
+### cat .gitignore
+查看文件
+
 ### pwd
 print working directory
 touch 文件名
 
-
+### mkdir 新建目录
+mkdir 目录名
 
 ### touch
 创建文件 
