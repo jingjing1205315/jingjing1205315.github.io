@@ -214,5 +214,8 @@ git checkout
 5. git clean -f 清空工作区的untrack,但对not  staged的修改无效。
 
 
-
+参考：
+[Git 清空工作区和暂存区](https://blog.csdn.net/weixin_43664308/article/details/100083246)
+[廖雪峰Git教程](https://www.liaoxuefeng.com/wiki/896043488029600/897271968352576)
+    
 
