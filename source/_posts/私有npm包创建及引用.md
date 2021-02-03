@@ -22,7 +22,7 @@ package name: (test)
 ```
 根据提示输入包名、版本、描述、入口文件、测试指令、keywords、author等，不需要更改的直接回车。
 
-生成packege.json
+生成package.json
 
 ```
 {
