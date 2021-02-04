@@ -76,7 +76,7 @@ git remote add origin git@github.com:jingjing1205315/
 git push -u origin master
 ```
 
-### 本地项目用npm包的方式引入
+### 私有项目用npm包的方式引入
 
 ```
 npm install <npm包名> --registry=<npm包源>
@@ -100,6 +100,12 @@ module.exports = {
     },
 
 ```
+[You are using the runtime-only build of Vue where the template compiler is not available. Either pre](https://blog.csdn.net/wxl1555/article/details/83187647)
+
+
+[VUE问题：You are using the runtime-only build of Vue where the template compiler is not available.
+](https://www.pianshen.com/article/4406262022/)
+
 
 ### 开发阶段修改私有npm包
 
@@ -118,15 +124,33 @@ npm link <包名>
 ```
 这时，修改npm包的内容，可以实时展现在项目中。调试起来很方便。
 
+[npm 私有包依赖 本地开发调试频繁更新解决方案](https://www.jianshu.com/p/d0c887cf730e?utm_campaign)
+
+
+
+### 引入项目 No ESLint configuration found报错
+ vue cli3解决办法 // vue.config.js添加如下内容
+
+```
+module.exports = {
+  chainWebpack: config => config.resolve.symlinks(false)
+}
+```
+webpack项目 webpack.config.js
+
+```
+module.exports = {
+  //...
+  resolve: {
+    symlinks: false
+  }
+};
+```
+
+[webpack项目，link本地包出现No ESLint configuration found 问题解决](https://blog.csdn.net/qq_35261296/article/details/103990046)
+
 
 ### 参考文章
 
-[VUE问题：You are using the runtime-only build of Vue where the template compiler is not available.
-](https://www.pianshen.com/article/4406262022/)
-
-[You are using the runtime-only build of Vue where the template compiler is not available. Either pre](https://blog.csdn.net/wxl1555/article/details/83187647)
-
 [如何安装私有 npm 包？](https://www.cnblogs.com/cag2050/p/10724196.html)
-
-[npm 私有包依赖 本地开发调试频繁更新解决方案](https://www.jianshu.com/p/d0c887cf730e?utm_campaign)
 
