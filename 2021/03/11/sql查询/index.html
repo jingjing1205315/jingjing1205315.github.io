@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="作为前端，可能认为数据层是后端的需要处理的事情。但现在是大数据时代，往往需要我们在页面中埋点来记录分析用户行为。我们如何检验我们的埋点是否埋上、埋对，就需要我们具有基础数据查询能力。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql查询">
+<meta property="og:url" content="http://yoursite.com/2021/03/11/sql%E6%9F%A5%E8%AF%A2/index.html">
+<meta property="og:site_name" content="April的个人小站">
+<meta property="og:description" content="作为前端，可能认为数据层是后端的需要处理的事情。但现在是大数据时代，往往需要我们在页面中埋点来记录分析用户行为。我们如何检验我们的埋点是否埋上、埋对，就需要我们具有基础数据查询能力。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2021/03/11/sql%E6%9F%A5%E8%AF%A2/1615456235396.jpg">
+<meta property="article:published_time" content="2021-03-11T14:49:45.000Z">
+<meta property="article:modified_time" content="2021-03-11T09:56:31.172Z">
+<meta property="article:author" content="April">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2021/03/11/sql%E6%9F%A5%E8%AF%A2/1615456235396.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2021/03/11/sql%E6%9F%A5%E8%AF%A2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh_CN'
+  };
+</script>
+
+  <title>sql查询 | April的个人小站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="April的个人小站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">April的个人小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/11/sql%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="April">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="April的个人小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          sql查询
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-11 14:49:45 / Modified: 09:56:31" itemprop="dateCreated datePublished" datetime="2021-03-11T14:49:45+00:00">2021-03-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>作为前端，可能认为数据层是后端的需要处理的事情。但现在是大数据时代，往往需要我们在页面中埋点来记录分析用户行为。我们如何检验我们的埋点是否埋上、埋对，就需要我们具有基础数据查询能力。</p>
+<a id="more"></a>
+
+<p>###基础查询<br>select 列名,列名,列名,列名,列名<br>from 表名<br>where 条件<br>and 条件<br>or 条件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select date, user_id, distinct_id </span><br><span class="line">from</span><br><span class="line">events</span><br><span class="line">where date &gt;&#x3D; &#39;2021-03-01&#39;</span><br><span class="line">and event&#x3D;&#39;H5PageView&#39;</span><br><span class="line">and filename&#x3D;&#39;H5_WA_PaymentSuccess&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="limit-条数"><a href="#limit-条数" class="headerlink" title="limit 条数"></a>limit 条数</h3><p>假如不限制条数，查询的数据特别多的话，会非常慢，limit来限制返回多少条符合结果的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select date, user_id, distinct_id,project_uuid</span><br><span class="line">from</span><br><span class="line">events</span><br><span class="line">where date &gt;&#x3D; &#39;2021-03-01&#39;</span><br><span class="line">and event&#x3D;&#39;H5PageView&#39;</span><br><span class="line">and filename&#x3D;&#39;H5_WA_PaymentSuccess&#39;</span><br><span class="line">limit 10</span><br></pre></td></tr></table></figure>
+
+<h3 id="group-by-列名"><a href="#group-by-列名" class="headerlink" title="group by 列名"></a>group by 列名</h3><p>将查询结果按**(列名)分组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select date</span><br><span class="line">from</span><br><span class="line">events</span><br><span class="line">where date &gt;&#x3D; &#39;2021-03-01&#39;</span><br><span class="line">and event&#x3D;&#39;H5PageView&#39;</span><br><span class="line">and filename&#x3D;&#39;H5_WA_PaymentSuccess&#39;</span><br><span class="line">group by date</span><br></pre></td></tr></table></figure>
+<h3 id="distinct-列名"><a href="#distinct-列名" class="headerlink" title="distinct 列名"></a>distinct 列名</h3><p>根据列名去重</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select date, distinct user_id</span><br><span class="line">from</span><br><span class="line">events</span><br><span class="line">where date &gt;&#x3D; &#39;2021-03-01&#39;</span><br><span class="line">and event&#x3D;&#39;H5PageView&#39;</span><br><span class="line">and filename&#x3D;&#39;H5_WA_PaymentSuccess&#39;</span><br><span class="line">group by date</span><br></pre></td></tr></table></figure>
+<h3 id="as-列名-as-自己起的名字"><a href="#as-列名-as-自己起的名字" class="headerlink" title="as (列名 as 自己起的名字)"></a>as (列名 as 自己起的名字)</h3><p>为列名起个别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select date as &#39;日期&#39;, distinct user_id</span><br><span class="line">from</span><br><span class="line">events</span><br><span class="line">where date &gt;&#x3D; &#39;2021-03-01&#39;</span><br><span class="line">and event&#x3D;&#39;H5PageView&#39;</span><br><span class="line">and filename&#x3D;&#39;H5_WA_PaymentSuccess&#39;</span><br><span class="line">group by date</span><br></pre></td></tr></table></figure>
+<h3 id="order-by-列名"><a href="#order-by-列名" class="headerlink" title="order by 列名"></a>order by 列名</h3><p>根据日期这一列来排序，可选择升序asc，和降序desc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select date as &#39;日期&#39;, distinct user_id</span><br><span class="line">from</span><br><span class="line">events</span><br><span class="line">where date &gt;&#x3D; &#39;2021-03-01&#39;</span><br><span class="line">and event&#x3D;&#39;H5PageView&#39;</span><br><span class="line">and filename&#x3D;&#39;H5_WA_PaymentSuccess&#39;</span><br><span class="line">order by date desc</span><br></pre></td></tr></table></figure>
+
+<h3 id="count-列名"><a href="#count-列名" class="headerlink" title="count(列名)"></a>count(列名)</h3><p>根据列名统计总数，也可以用count(*)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select date as &#39;日期&#39;, count(distinct user_id)</span><br><span class="line">from</span><br><span class="line">events</span><br><span class="line">where date &gt;&#x3D; &#39;2021-03-01&#39;</span><br><span class="line">and event&#x3D;&#39;H5PageView&#39;</span><br><span class="line">and filename&#x3D;&#39;H5_WA_PaymentSuccess&#39;</span><br><span class="line">group by date desc</span><br></pre></td></tr></table></figure>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>不同的数据库支持的函数不同。下面所用函数为<a href="https://impala.apache.org/docs/build/html/topics/impala_functions.html" target="_blank" rel="noopener">impala提供</a></p>
+<p>Impala Mathematical Functions–数学方法<br>Impala Type Conversion Functions–转换方法<br>Impala Date and Time Functions–日期和事件方法<br>Impala Conditional Functions–条件方法<br>Impala String Functions–字符串方法<br>Impala Aggregate Functions–聚合方法<br>Impala Analytic Functions–分析方法<br>Impala Bit Functions–二进制方法<br>Impala Miscellaneous Functions–混杂方法</p>
+<p>如下<br>cast( <strong>* as DECIMAL(9,8)) 将*</strong>转换为数字，精度为9，小数位为8</p>
+<p>GET_JSON_OBJECT(字符串形式的json, ‘$.key值’) 将字符串形式的json转换为json，并取json中的这个key值。</p>
+<p>replace(原始字符串, ‘要被替换的字符串’, ‘替换的字符串’) 替换字符串</p>
+<p>parse_url(原始url, ‘QUERY’) –第二个参数可选值’PROTOCOL’, ‘HOST’, ‘PATH’, ‘REF’, ‘AUTHORITY’, ‘FILE’, ‘USERINFO’, or ‘QUERY’<br>第二个参数是’QUERY’，还可以有第三个参数parse_url(原始url, ‘QUERY’, ‘url参数的key’)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select date,</span><br><span class="line"> cast(GET_JSON_OBJECT(REPLACE(ExtraInfo, &#39;\\&#39;, &#39;&#39;),&#39;$.qscrnd&#39;) as DECIMAL(9,8)) as qscrnd ,</span><br><span class="line"> parse_url(origin_url, &#39;QUERY&#39;, &#39;projuuid&#39;) as project_uuid </span><br><span class="line">from</span><br><span class="line">events</span><br><span class="line">where date &gt;&#x3D; &#39;2021-03-01&#39;</span><br><span class="line">and event&#x3D;&#39;H5PageView&#39;</span><br><span class="line">and filename&#x3D;&#39;H5_WA_PaymentSuccess&#39;</span><br><span class="line">order by date</span><br></pre></td></tr></table></figure>
+
+<h3 id="主表-join-副表-on-以-提交件"><a href="#主表-join-副表-on-以-提交件" class="headerlink" title="主表 join 副表 on 以**提交件"></a>主表 join 副表 on 以**提交件</h3><p>结合两张表来查询，也可以结合两个查询结果来查询。</p>
+<h3 id="case-when-条件-then-输出-end"><a href="#case-when-条件-then-输出-end" class="headerlink" title="case when 条件 then 输出 end"></a>case when 条件 then 输出 end</h3><p>整合条件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">select pv.date,</span><br><span class="line">case </span><br><span class="line">   when pv.qscrnd &lt; 0.5 </span><br><span class="line">   then &#39;&lt;0.5&#39;</span><br><span class="line">   when pv.qscrnd &gt;&#x3D; 0.5 </span><br><span class="line">   then &#39;&gt;0.5&#39;</span><br><span class="line">end as qscrnd,</span><br><span class="line"></span><br><span class="line">count(*) as pv, </span><br><span class="line">count(distinct pv.user_id) as uv</span><br><span class="line"></span><br><span class="line">from (</span><br><span class="line">    select date, user_id, distinct_id,project_uuid,</span><br><span class="line">      cast(GET_JSON_OBJECT(REPLACE(ExtraInfo, &#39;\\&#39;, &#39;&#39;),&#39;$.qscrnd&#39;) as DECIMAL(9,8)) as qscrnd </span><br><span class="line">    from</span><br><span class="line">    events</span><br><span class="line">    where date &gt;&#x3D; &#39;2021-03-01&#39;</span><br><span class="line">    and event&#x3D;&#39;H5PageView&#39;</span><br><span class="line">    and filename&#x3D;&#39;H5_WA_PaymentSuccess&#39;</span><br><span class="line">    --and filevalue&#x3D;&#39;H5_WA_PaymentSuccess&#39;</span><br><span class="line">  ) pv </span><br><span class="line">  </span><br><span class="line">  join (</span><br><span class="line">    select user_id, distinct_id,project_uuid</span><br><span class="line">    from</span><br><span class="line">    events</span><br><span class="line">    where date &gt;&#x3D; &#39;2021-03-01&#39;</span><br><span class="line">    and event &#x3D; &#39;FileClick&#39;</span><br><span class="line">    and filename&#x3D;&#39;Button_RedPocket&#39;</span><br><span class="line">    and filevalue&#x3D;&#39;H5_WA_PaymentSuccess&#39;</span><br><span class="line">  ) click</span><br><span class="line">  on pv.user_id &#x3D; click.user_id</span><br><span class="line">  --and pv.project_uuid &#x3D; click.project_uuid</span><br><span class="line"></span><br><span class="line">group by date, qscrnd</span><br><span class="line">order by date desc</span><br></pre></td></tr></table></figure>
+
+<img style="margin: 0" src="/2021/03/11/sql%E6%9F%A5%E8%AF%A2/1615456235396.jpg">
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/01/%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-1/" rel="prev" title="网页性能优化">
+      <i class="fa fa-chevron-left"></i> 网页性能优化
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#limit-条数"><span class="nav-number">1.</span> <span class="nav-text">limit 条数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#group-by-列名"><span class="nav-number">2.</span> <span class="nav-text">group by 列名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#distinct-列名"><span class="nav-number">3.</span> <span class="nav-text">distinct 列名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#as-列名-as-自己起的名字"><span class="nav-number">4.</span> <span class="nav-text">as (列名 as 自己起的名字)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order-by-列名"><span class="nav-number">5.</span> <span class="nav-text">order by 列名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#count-列名"><span class="nav-number">6.</span> <span class="nav-text">count(列名)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">7.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主表-join-副表-on-以-提交件"><span class="nav-number">8.</span> <span class="nav-text">主表 join 副表 on 以**提交件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#case-when-条件-then-输出-end"><span class="nav-number">9.</span> <span class="nav-text">case when 条件 then 输出 end</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">April</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">April</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
