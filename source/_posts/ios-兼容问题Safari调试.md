@@ -3,6 +3,8 @@ title: ios 兼容问题Safari调试&真机调试
 date: 2021-01-13 13:33:55
 tags:
 ---
+ ios手机和Safari真机调试
+<!--more-->
 
 ### 准备工作：
 Mac电脑，iPhone手机，数据线

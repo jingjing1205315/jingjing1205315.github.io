@@ -3,7 +3,8 @@ title: git 命令
 date: 2021-01-20 20:10:50
 tags:
 ---
-
+log,diff,reset,checkout
+<!-- more -->
 ### git log 
 ```
 commit 96f50451c6f24a221c58c58a8cae136858fed97e (HEAD -> master)

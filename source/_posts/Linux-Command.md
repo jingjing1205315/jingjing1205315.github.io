@@ -3,7 +3,8 @@ title: Linux Command
 date: 2021-01-14 19:05:45
 tags:
 ---
-
+vim, cat, pwd, mkdir,touch, ls, chmod, chown, chgrp
+<!-- more -->
 ---------
 ### vim .gitignore
 编辑文件
