@@ -3,6 +3,8 @@ title: 自签名ssl证书生成与使用-知识搬运
 date: 2020-11-26 19:32:46
 tags:
 ---
+nginx的https证书配置
+<!--more-->
 
 ### 创建密钥
 首先，进入 nginx 配置目录，创建 openssl 配置文件 **req.conf**，其中的 CN, DNS.1, DNS.2 等需要替换为自己的域名：

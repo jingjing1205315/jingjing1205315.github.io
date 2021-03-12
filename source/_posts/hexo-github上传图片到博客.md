@@ -3,6 +3,8 @@ title: hexo+github上传图片到博客(知识搬运)
 date: 2020-11-26 18:03:10
 tags:
 ---
+hexo使用及如何添加图片
+<!--more-->
 
 1、cd到博客根目录下 查看_config.yml文件 查找 post_asset_folder 字段确定post_asset_folder 设置为true -> post_asset_folder:true
 
