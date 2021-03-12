@@ -169,10 +169,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-11 14:49:45 / Modified: 09:56:31" itemprop="dateCreated datePublished" datetime="2021-03-11T14:49:45+00:00">2021-03-11</time>
+              <time title="Created: 2021-03-11 14:49:45" itemprop="dateCreated datePublished" datetime="2021-03-11T14:49:45+00:00">2021-03-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-12 07:22:58" itemprop="dateModified" datetime="2021-03-12T07:22:58+00:00">2021-03-12</time>
+              </span>
 
           
 
@@ -243,7 +249,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 09:56:31" itemprop="dateModified" datetime="2021-03-11T09:56:31+00:00">2021-03-11</time>
+                <time title="Modified: 2021-03-12 07:22:58" itemprop="dateModified" datetime="2021-03-12T07:22:58+00:00">2021-03-12</time>
               </span>
 
           
@@ -257,15 +263,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="最大化利用浏览器并行请求数对首屏拆包，用webpack-bundle-analyzer分析哪些可拆"><a href="#最大化利用浏览器并行请求数对首屏拆包，用webpack-bundle-analyzer分析哪些可拆" class="headerlink" title="最大化利用浏览器并行请求数对首屏拆包，用webpack-bundle-analyzer分析哪些可拆"></a>最大化利用浏览器并行请求数对首屏拆包，用webpack-bundle-analyzer分析哪些可拆</h3><p>以chrome为例：同域名下最大并行请求数为6个。</p>
-<h3 id="首屏组件及任何负组件都应为同步加载"><a href="#首屏组件及任何负组件都应为同步加载" class="headerlink" title="首屏组件及任何负组件都应为同步加载"></a>首屏组件及任何负组件都应为同步加载</h3><h3 id="放在head中的js文件比body中的js文件加载优先级高"><a href="#放在head中的js文件比body中的js文件加载优先级高" class="headerlink" title="放在head中的js文件比body中的js文件加载优先级高"></a>放在head中的js文件比body中的js文件加载优先级高</h3><h3 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h3><p>prefetch 预加载其它页面所需的资源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import(</span><br><span class="line">  &#96;.&#x2F;utilities&#x2F;divide&#96;</span><br><span class="line">  &#x2F;* webpackPrefetch: true *&#x2F;</span><br><span class="line">  &#x2F;* webpackChunkName: &quot;utilities&quot; *&#x2F;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>以上的导入会让<link rel="prefetch" as="script" href="utilities.js">被添加至页面的头部。因此浏览器会在空闲时间预先拉取该文件。</p>
-<p>异步chunk会和父级chunk并行加载(webpack4.46并未实验成功)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* webpackPreload: true *&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>参考：<a href="https://www.cnblogs.com/powertoolsteam/p/10873677.html" target="_blank" rel="noopener">Webpack 4教程 - 第八部分 使用prefetch和preload进行动态加载</a></p>
-
+          <p>一次性能优化实战经验总结</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/01/%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -315,7 +321,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 09:56:31" itemprop="dateModified" datetime="2021-03-11T09:56:31+00:00">2021-03-11</time>
+                <time title="Modified: 2021-03-12 07:22:58" itemprop="dateModified" datetime="2021-03-12T07:22:58+00:00">2021-03-12</time>
               </span>
 
           
@@ -387,7 +393,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 09:56:31" itemprop="dateModified" datetime="2021-03-11T09:56:31+00:00">2021-03-11</time>
+                <time title="Modified: 2021-03-12 07:22:58" itemprop="dateModified" datetime="2021-03-12T07:22:58+00:00">2021-03-12</time>
               </span>
 
           
@@ -459,7 +465,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 09:56:31" itemprop="dateModified" datetime="2021-03-11T09:56:31+00:00">2021-03-11</time>
+                <time title="Modified: 2021-03-12 07:22:58" itemprop="dateModified" datetime="2021-03-12T07:22:58+00:00">2021-03-12</time>
               </span>
 
           
@@ -531,7 +537,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 09:56:31" itemprop="dateModified" datetime="2021-03-11T09:56:31+00:00">2021-03-11</time>
+                <time title="Modified: 2021-03-12 07:22:58" itemprop="dateModified" datetime="2021-03-12T07:22:58+00:00">2021-03-12</time>
               </span>
 
           
@@ -603,7 +609,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 09:56:31" itemprop="dateModified" datetime="2021-03-11T09:56:31+00:00">2021-03-11</time>
+                <time title="Modified: 2021-03-12 07:22:58" itemprop="dateModified" datetime="2021-03-12T07:22:58+00:00">2021-03-12</time>
               </span>
 
           
@@ -675,7 +681,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 09:56:31" itemprop="dateModified" datetime="2021-03-11T09:56:31+00:00">2021-03-11</time>
+                <time title="Modified: 2021-03-12 07:22:58" itemprop="dateModified" datetime="2021-03-12T07:22:58+00:00">2021-03-12</time>
               </span>
 
           
@@ -689,40 +695,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="webpack-5-与-webpack-dev-server-3兼容性问题"><a href="#webpack-5-与-webpack-dev-server-3兼容性问题" class="headerlink" title="webpack 5 与 webpack-dev-server 3兼容性问题"></a>webpack 5 与 webpack-dev-server 3兼容性问题</h3><p>用webpack-dev-server启动项目失败，报错：Error: Cannot find module ‘webpack-cli/bin/config-yargs’</p>
-<p>解决办法：使用 webpack serve </p>
-<p>此时已实现live reload</p>
-<h3 id="npm安装webpack插件报checkPermissions错误"><a href="#npm安装webpack插件报checkPermissions错误" class="headerlink" title="npm安装webpack插件报checkPermissions错误"></a>npm安装webpack插件报checkPermissions错误</h3><p>起因是运行webpack-dev-server时，各种报错Cannot find module，然后卸载、安装npm包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm WARN deprecated chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.</span><br><span class="line">npm WARN deprecated fsevents@1.2.13: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.</span><br><span class="line">npm WARN deprecated resolve-url@0.2.1: https:&#x2F;&#x2F;github.com&#x2F;lydell&#x2F;resolve-url#deprecated</span><br><span class="line">npm WARN deprecated urix@0.1.0: Please see https:&#x2F;&#x2F;github.com&#x2F;lydell&#x2F;urix#deprecated</span><br><span class="line">npm WARN checkPermissions Missing write access to &#x2F;Users&#x2F;jing&#x2F;Documents&#x2F;testwebpack&#x2F;node_modules&#x2F;_p-locate@5.0.0@p-locate&#x2F;node_modules&#x2F;p-limit</span><br><span class="line">npm WARN checkPermissions Missing write access to &#x2F;Users&#x2F;jing&#x2F;Documents&#x2F;testwebpack&#x2F;node_modules&#x2F;_schema-utils@3.0.0@schema-utils&#x2F;node_modules&#x2F;ajv</span><br><span class="line">npm WARN checkPermissions Missing write access to &#x2F;Users&#x2F;jing&#x2F;Documents&#x2F;testwebpack&#x2F;node_modules&#x2F;_schema-utils@3.0.0@schema-utils&#x2F;node_modules&#x2F;ajv-keywords</span><br><span class="line">npm WARN checkPermissions Missing write access to &#x2F;Users&#x2F;jing&#x2F;Documents&#x2F;testwebpack&#x2F;node_modules&#x2F;ajv-errors</span><br><span class="line">npm WARN checkPermissions Missing write access to &#x2F;Users&#x2F;jing&#x2F;Documents&#x2F;testwebpack&#x2F;node_modules&#x2F;assign-symbols</span><br><span class="line">npm WARN checkPermissions Missing write access to &#x2F;Users&#x2F;jing&#x2F;Documents&#x2F;testwebpack&#x2F;node_modules&#x2F;async-limiter</span><br><span class="line">npm WARN checkPermissions Missing write access to &#x2F;Users&#x2F;jing&#x2F;Documents&#x2F;testwebpack&#x2F;node_modules&#x2F;default-gateway</span><br></pre></td></tr></table></figure>
-
-<p>然后用sudo npm i，还是会报错。</p>
-<p>有人说可能是npm和cnpm交叉使用造成的。</p>
-<p>于是暴利删除node_modules.</p>
-<p>再运行下面代码，终于不再报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm i</span><br></pre></td></tr></table></figure>
-<h3 id="hotModule不起效果"><a href="#hotModule不起效果" class="headerlink" title="hotModule不起效果"></a>hotModule不起效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">log.js:26 [HMR] Update failed: ChunkLoadError: Loading hot update chunk 143 failed.</span><br><span class="line">(missing: http:&#x2F;&#x2F;localhost:8080&#x2F;143.f7a142c5c6905a4f3f57.hot-update.js)</span><br><span class="line">    at http:&#x2F;&#x2F;localhost:8080&#x2F;app.bundle.js:2:233347</span><br><span class="line">    at new Promise (&lt;anonymous&gt;)</span><br><span class="line">    at s (http:&#x2F;&#x2F;localhost:8080&#x2F;app.bundle.js:2:233299)</span><br><span class="line">    at http:&#x2F;&#x2F;localhost:8080&#x2F;app.bundle.js:2:237441</span><br><span class="line">    at Array.forEach (&lt;anonymous&gt;)</span><br><span class="line">    at Object.o.hmrC.jsonp (http:&#x2F;&#x2F;localhost:8080&#x2F;app.bundle.js:2:237387)</span><br><span class="line">    at http:&#x2F;&#x2F;localhost:8080&#x2F;app.bundle.js:2:229707</span><br><span class="line">    at Array.reduce (&lt;anonymous&gt;)</span><br><span class="line">    at http:&#x2F;&#x2F;localhost:8080&#x2F;app.bundle.js:2:229669</span><br></pre></td></tr></table></figure>
-<p>解决方案：入口文件改为一个。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">    app: &#39;.&#x2F;src&#x2F;index.js&#39;,</span><br><span class="line">    &#x2F;&#x2F;print: &#39;.&#x2F;src&#x2F;print.js&#39;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong><br>这时候更改入口index.js引入的print.js里的内容，并不能起到热更新的效果。想要print.js的修改也适用热更新。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+ if (module.hot) &#123;</span><br><span class="line">+   module.hot.accept(&#39;.&#x2F;print.js&#39;, function() &#123;</span><br><span class="line">+     console.log(&#39;Accepting the updated printMe module!&#39;);</span><br><span class="line">+     printMe();</span><br><span class="line">+   &#125;)</span><br><span class="line">+ &#125;</span><br></pre></td></tr></table></figure>
-
-<p>热更新会在css、vue文件中起效果。因为style-loader、vue-loder已经替我们做了 module.hot.accept</p>
-<h3 id="webpack版本"><a href="#webpack版本" class="headerlink" title="webpack版本"></a>webpack版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;webpack&quot;: &quot;^5.11.0&quot;,</span><br><span class="line">&quot;webpack-cli&quot;: &quot;^4.2.0&quot;,</span><br><span class="line">&quot;webpack-dev-server&quot;: &quot;^3.11.0&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="webpack-config"><a href="#webpack-config" class="headerlink" title="webpack config"></a>webpack config</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line">const HtmlWebpackPlugin &#x3D; require(&#39;html-webpack-plugin&#39;);</span><br><span class="line">const &#123; CleanWebpackPlugin &#125; &#x3D; require(&#39;clean-webpack-plugin&#39;);</span><br><span class="line">const webpack &#x3D; require(&#39;webpack&#39;);</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: &#39;.&#x2F;src&#x2F;index.js&#39;,</span><br><span class="line">    &#x2F;&#x2F;print: &#39;.&#x2F;src&#x2F;print.js&#39;</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: &#39;[name].bundle.js&#39;,</span><br><span class="line">    path: path.resolve(__dirname, &#39;dist&#39;)</span><br><span class="line">  &#125;,</span><br><span class="line">  devtool: &#39;inline-source-map&#39;,</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: &#39;.&#x2F;dist&#39;,</span><br><span class="line">    hot: true,</span><br><span class="line">  &#125;,</span><br><span class="line"> </span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.css$&#x2F;,</span><br><span class="line">        use: [</span><br><span class="line">          &#39;style-loader&#39;,</span><br><span class="line">          &#39;css-loader&#39;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.(png|svg|jpg|gif)$&#x2F;,</span><br><span class="line">        use: [</span><br><span class="line">          &#39;file-loader&#39;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.(xml)$&#x2F;,</span><br><span class="line">        use: [</span><br><span class="line">          &#39;xml-loader&#39;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins:[</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">      title: &#39;Output Management&#39;</span><br><span class="line">    &#125;),</span><br><span class="line">    new CleanWebpackPlugin(&#123;</span><br><span class="line">      cleanOnceBeforeBuildPatterns: &#39;dist&#39;</span><br><span class="line">    &#125;),</span><br><span class="line">    &#x2F;&#x2F; new webpack.NamedModulesPlugin(),</span><br><span class="line">    new webpack.HotModuleReplacementPlugin()</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="入口文件hotModule测试"><a href="#入口文件hotModule测试" class="headerlink" title="入口文件hotModule测试"></a>入口文件hotModule测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">index.js</span><br><span class="line">import _ from &#39;lodash&#39;;</span><br><span class="line">import &#39;.&#x2F;style.css&#39;;</span><br><span class="line">import MyImage from &#39;.&#x2F;icon.png&#39;;</span><br><span class="line">import data from &#39;.&#x2F;mock&#x2F;data.xml&#39;;</span><br><span class="line">import printMe from &#39;.&#x2F;print.js&#39;;</span><br><span class="line"></span><br><span class="line">function component() &#123;</span><br><span class="line">  var element &#x3D; document.createElement(&#39;div&#39;);</span><br><span class="line">  var btn &#x3D; document.createElement(&#39;button&#39;);</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; Lodash（目前通过一个 script 脚本引入）对于执行这一行是必需的</span><br><span class="line">  element.innerHTML &#x3D; _.join([&#39;Hello&#39;, &#39;webpack&#39;], &#39; &#39;);</span><br><span class="line">  element.classList.add(&#39;hello&#39;);</span><br><span class="line"></span><br><span class="line">  btn.innerHTML &#x3D; &#39;Click me and check the console!&#39;;</span><br><span class="line">  btn.onclick &#x3D; printMe;</span><br><span class="line"></span><br><span class="line">  element.appendChild(btn);</span><br><span class="line">  return element;</span><br><span class="line">&#125;</span><br><span class="line">document.body.appendChild(component());</span><br><span class="line">if (module.hot) &#123;</span><br><span class="line">  module.hot.accept(&#39;.&#x2F;print.js&#39;, function () &#123;&#x2F;&#x2F; print.js 文件改动会触发hotModule</span><br><span class="line">    console.log(&#39;Accepting the updated printMe module!&#39;); </span><br><span class="line"></span><br><span class="line">  &#125;)</span><br><span class="line">  module.hot.accept(); &#x2F;&#x2F; index文件有改动会触发hotModule，不加这行，index文件的改动触发的是liveReload</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print.js</span><br><span class="line">export default function printMe() &#123;</span><br><span class="line">    console.log(&#39;I got called from print.js!&#39;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p>问题是：print文件改动了，点击按钮时 btn.onclick触发的仍旧是旧的printMe。</p>
-<p>index文件改动了，页面会再写入一条component();</p>
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="http://www.qiutianaimeili.com/html/page/2020/02/zde66zxtxpd.html" target="_blank" rel="noopener">npm安装webpack插件报checkPermissions错误</a></p>
-<p><a href="https://blog.csdn.net/sxs7970/article/details/88746939" target="_blank" rel="noopener">解决报错Cannot find module ‘webpack-cli/bin/config-yargs’
-</a></p>
-<p><a href="https://www.cnblogs.com/xiaorong-9/p/14069684.html" target="_blank" rel="noopener">webpack 5 与 webpack-dev-server 3兼容性问题</a></p>
-<p><a href="https://segmentfault.com/a/1190000003872635" target="_blank" rel="noopener">Webpack 用来做模块热替换(hot module replacement)</a></p>
-<p><a href="http://www.myjscode.com/page/article109.html" target="_blank" rel="noopener">模块热替换api</a></p>
-
+          <p>webpack5、npm包的兼容及遇到的错误解决</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/23/webpack-config/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -772,7 +753,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 09:56:31" itemprop="dateModified" datetime="2021-03-11T09:56:31+00:00">2021-03-11</time>
+                <time title="Modified: 2021-03-12 07:22:58" itemprop="dateModified" datetime="2021-03-12T07:22:58+00:00">2021-03-12</time>
               </span>
 
           
@@ -837,7 +818,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 09:56:31" itemprop="dateModified" datetime="2021-03-11T09:56:31+00:00">2021-03-11</time>
+                <time title="Modified: 2021-03-12 07:22:58" itemprop="dateModified" datetime="2021-03-12T07:22:58+00:00">2021-03-12</time>
               </span>
 
           
@@ -851,24 +832,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="创建密钥"><a href="#创建密钥" class="headerlink" title="创建密钥"></a>创建密钥</h3><p>首先，进入 nginx 配置目录，创建 openssl 配置文件 <strong>req.conf</strong>，其中的 CN, DNS.1, DNS.2 等需要替换为自己的域名：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[req]</span><br><span class="line">distinguished_name &#x3D; req_distinguished_name</span><br><span class="line">x509_extensions &#x3D; v3_req</span><br><span class="line">prompt &#x3D; no</span><br><span class="line">[req_distinguished_name]</span><br><span class="line">C &#x3D; US</span><br><span class="line">ST &#x3D; VA</span><br><span class="line">L &#x3D; SomeCity</span><br><span class="line">O &#x3D; MyCompany</span><br><span class="line">OU &#x3D; MyDivision</span><br><span class="line">CN &#x3D; www.company.com</span><br><span class="line">[v3_req]</span><br><span class="line">keyUsage &#x3D; keyEncipherment, dataEncipherment</span><br><span class="line">extendedKeyUsage &#x3D; serverAuth</span><br><span class="line">subjectAltName &#x3D; @alt_names</span><br><span class="line">[alt_names]</span><br><span class="line">DNS.1 &#x3D; www.company.net</span><br><span class="line">DNS.2 &#x3D; company.com</span><br><span class="line">DNS.3 &#x3D; company.net</span><br></pre></td></tr></table></figure>
-
-<p>如果域名较多，且都隶属于同一个主域名，可以将 DNS.1、DNS.2 等简化为 *.example.com。即：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">[alt_names]</span><br><span class="line">DNS.1 &#x3D; *.example.com</span><br></pre></td></tr></table></figure>
-<p>接着，执行如下命令，创建证书：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509 -nodes -days 730 -newkey rsa:2048 -keyout cert.pem -out cert.pem -config req.conf -extensions &#39;v3_req&#39;</span><br></pre></td></tr></table></figure>
-<h3 id="配置-nginx"><a href="#配置-nginx" class="headerlink" title="配置 nginx"></a>配置 nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name www.example.com;</span><br><span class="line">    ssl_certificate cert.pem;</span><br><span class="line">    ssl_certificate_key cert.pem;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        root &#x2F;Users&#x2F;example&#x2F;hello&#x2F;world;</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>服务器证书（ssl_certificate）是一个公开文件，每个请求连接的客户端都会收到一份。私有密钥（ssl_certificate_key）是加密单元，需要存储在保密的地方，但要确保 nginx 主线程可访问。私有密钥一般和证书存储到同一位置。</p>
-<p>cert.pem 就是上一个步骤产生的证书和密钥，在一个文件中。</p>
-<h3 id="配置浏览器"><a href="#配置浏览器" class="headerlink" title="配置浏览器"></a>配置浏览器</h3><p>打开 Chrome 的开发者工具下的【security】选项卡，查看当前的证书，然后下载下来，双击添加到操作系统中，修改为始终信任就可以了。</p>
-<h3 id="采坑"><a href="#采坑" class="headerlink" title="采坑"></a>采坑</h3><p>1、mac-keychain Access 找到对应的证书改为 Always Trust</p>
-<img style="margin: 0 " src="/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/1606391025496.jpg">
-
-<p>2、如果钥匙串中没有相应证书，找到nginx中配置的证书，双击添加到钥匙串中。</p>
-<p>2、由于我是在原证书中加了一个域名，重新生成的证书，发现刷新、重启浏览器、删除老证书，都不能让本地起的nginx服务变安全。解决方法是重启nginx。配置成功！<br><img style="margin: 0 " src="/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/1606391344586.jpg"></p>
-<h3 id="转载自"><a href="#转载自" class="headerlink" title="转载自"></a>转载自</h3><p><a href="https://www.1zh.tech/2017/12/15/setup-local-https/" target="_blank" rel="noopener">设置本地 nginx 的 HTTPS</a></p>
-
+          <p>nginx的https证书配置</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
