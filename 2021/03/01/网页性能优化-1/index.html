@@ -28,7 +28,7 @@
 <meta property="og:description" content="一次性能优化实战经验总结">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-01T09:42:28.000Z">
-<meta property="article:modified_time" content="2021-03-12T07:22:58.885Z">
+<meta property="article:modified_time" content="2021-03-17T05:47:25.921Z">
 <meta property="article:author" content="April">
 <meta name="twitter:card" content="summary">
 
@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-12 07:22:58" itemprop="dateModified" datetime="2021-03-12T07:22:58+00:00">2021-03-12</time>
+                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
               </span>
 
           
@@ -219,6 +219,8 @@
 
 <p>参考：<a href="https://www.cnblogs.com/powertoolsteam/p/10873677.html" target="_blank" rel="noopener">Webpack 4教程 - 第八部分 使用prefetch和preload进行动态加载</a></p>
 <h3 id="去掉ajax的mothed为option的请求"><a href="#去掉ajax的mothed为option的请求" class="headerlink" title="去掉ajax的mothed为option的请求"></a>去掉ajax的mothed为option的请求</h3><p>由于浏览器的同源策略，非简单请求会发送option进行预检。猜测预检请求会影响加载速度，待验证</p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://www.cnblogs.com/cczlovexw/p/11754301.html" target="_blank" rel="noopener">页面加载性能优化</a><br><a href="https://blog.csdn.net/haha223545/article/details/79675304" target="_blank" rel="noopener">H5首屏秒开方案探讨</a><br><a href="https://zhuanlan.zhihu.com/p/67098966" target="_blank" rel="noopener">页面性能优化办法有哪些？</a></p>
+<p><a href="https://www.jianshu.com/p/cd7de34a759d" target="_blank" rel="noopener">Web性能优化-CSS和js的装载与执行</a></p>
 
     </div>
 
@@ -299,7 +301,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键节点数据采集"><span class="nav-number">1.</span> <span class="nav-text">关键节点数据采集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将首屏串行接口请求全部改为并行请求。"><span class="nav-number">2.</span> <span class="nav-text">将首屏串行接口请求全部改为并行请求。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对需要登录的页面，去掉页面最开始是否登录的接口请求。"><span class="nav-number">3.</span> <span class="nav-text">对需要登录的页面，去掉页面最开始是否登录的接口请求。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首屏组件及任何父组件都应为同步加载"><span class="nav-number">4.</span> <span class="nav-text">首屏组件及任何父组件都应为同步加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大化利用浏览器并行请求数对首屏拆包，减小包的大小。用webpack-bundle-analyzer分析哪些可拆"><span class="nav-number">5.</span> <span class="nav-text">最大化利用浏览器并行请求数对首屏拆包，减小包的大小。用webpack-bundle-analyzer分析哪些可拆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首屏同步加载部分组件"><span class="nav-number">6.</span> <span class="nav-text">首屏同步加载部分组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预加载"><span class="nav-number">7.</span> <span class="nav-text">预加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去掉ajax的mothed为option的请求"><span class="nav-number">8.</span> <span class="nav-text">去掉ajax的mothed为option的请求</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键节点数据采集"><span class="nav-number">1.</span> <span class="nav-text">关键节点数据采集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将首屏串行接口请求全部改为并行请求。"><span class="nav-number">2.</span> <span class="nav-text">将首屏串行接口请求全部改为并行请求。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对需要登录的页面，去掉页面最开始是否登录的接口请求。"><span class="nav-number">3.</span> <span class="nav-text">对需要登录的页面，去掉页面最开始是否登录的接口请求。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首屏组件及任何父组件都应为同步加载"><span class="nav-number">4.</span> <span class="nav-text">首屏组件及任何父组件都应为同步加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大化利用浏览器并行请求数对首屏拆包，减小包的大小。用webpack-bundle-analyzer分析哪些可拆"><span class="nav-number">5.</span> <span class="nav-text">最大化利用浏览器并行请求数对首屏拆包，减小包的大小。用webpack-bundle-analyzer分析哪些可拆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首屏同步加载部分组件"><span class="nav-number">6.</span> <span class="nav-text">首屏同步加载部分组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预加载"><span class="nav-number">7.</span> <span class="nav-text">预加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去掉ajax的mothed为option的请求"><span class="nav-number">8.</span> <span class="nav-text">去掉ajax的mothed为option的请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-number">9.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
