@@ -5,7 +5,8 @@ tags:
 ---
 webpack5、npm包的兼容及遇到的错误解决
 <!--more-->
-
+[webpack 中最易混淆的 5 个知识点](https://blog.csdn.net/weixin_40906515/article/details/109376256)
+[webpack - 多页面/入口支持 & 公共组件单独打包](https://www.cnblogs.com/sloong/p/5689162.html)
 ### webpack 5 与 webpack-dev-server 3兼容性问题
 
 用webpack-dev-server启动项目失败，报错：Error: Cannot find module 'webpack-cli/bin/config-yargs'
