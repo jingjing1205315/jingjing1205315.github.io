@@ -28,7 +28,7 @@
 <meta property="og:description" content="vim, cat, pwd, mkdir,touch, ls, chmod, chown, chgrp">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-14T19:05:45.000Z">
-<meta property="article:modified_time" content="2021-03-17T05:47:25.913Z">
+<meta property="article:modified_time" content="2021-04-12T09:10:07.420Z">
 <meta property="article:author" content="April">
 <meta name="twitter:card" content="summary">
 
@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
+                <time title="Modified: 2021-04-12 09:10:07" itemprop="dateModified" datetime="2021-04-12T09:10:07+00:00">2021-04-12</time>
               </span>
 
           
@@ -198,6 +198,9 @@
         <p>vim, cat, pwd, mkdir,touch, ls, chmod, chown, chgrp</p>
 <a id="more"></a>
 <hr>
+<h3 id="sudo-lsof-i-1025-查看端口1025被什么程序占用"><a href="#sudo-lsof-i-1025-查看端口1025被什么程序占用" class="headerlink" title="sudo lsof -i:1025 查看端口1025被什么程序占用"></a>sudo lsof -i:1025 查看端口1025被什么程序占用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COMMAND   PID USER   FD   TYPE             DEVICE SIZE&#x2F;OFF NODE NAME</span><br><span class="line">node    63350 jing   24u  IPv4 0x506ba2f2071e30df      0t0  TCP localhost:blackjack (LISTEN)</span><br></pre></td></tr></table></figure>
+<p>杀掉pid未63350的进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo kill -9 63350</span><br></pre></td></tr></table></figure>
 <h3 id="vim-gitignore"><a href="#vim-gitignore" class="headerlink" title="vim .gitignore"></a>vim .gitignore</h3><p>编辑文件</p>
 <h3 id="cat-gitignore"><a href="#cat-gitignore" class="headerlink" title="cat .gitignore"></a>cat .gitignore</h3><p>查看文件</p>
 <h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><p>print working directory<br>touch 文件名</p>
@@ -318,7 +321,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vim-gitignore"><span class="nav-number">1.</span> <span class="nav-text">vim .gitignore</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cat-gitignore"><span class="nav-number">2.</span> <span class="nav-text">cat .gitignore</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwd"><span class="nav-number">3.</span> <span class="nav-text">pwd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir-新建目录"><span class="nav-number">4.</span> <span class="nav-text">mkdir 新建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#touch"><span class="nav-number">5.</span> <span class="nav-text">touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-a"><span class="nav-number">6.</span> <span class="nav-text">ls -a</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-l"><span class="nav-number">7.</span> <span class="nav-text">ls -l</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chmod"><span class="nav-number">8.</span> <span class="nav-text">chmod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chown"><span class="nav-number">9.</span> <span class="nav-text">chown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chgrp"><span class="nav-number">10.</span> <span class="nav-text">chgrp</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sudo-lsof-i-1025-查看端口1025被什么程序占用"><span class="nav-number">1.</span> <span class="nav-text">sudo lsof -i:1025 查看端口1025被什么程序占用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim-gitignore"><span class="nav-number">2.</span> <span class="nav-text">vim .gitignore</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cat-gitignore"><span class="nav-number">3.</span> <span class="nav-text">cat .gitignore</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwd"><span class="nav-number">4.</span> <span class="nav-text">pwd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir-新建目录"><span class="nav-number">5.</span> <span class="nav-text">mkdir 新建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#touch"><span class="nav-number">6.</span> <span class="nav-text">touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-a"><span class="nav-number">7.</span> <span class="nav-text">ls -a</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-l"><span class="nav-number">8.</span> <span class="nav-text">ls -l</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chmod"><span class="nav-number">9.</span> <span class="nav-text">chmod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chown"><span class="nav-number">10.</span> <span class="nav-text">chown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chgrp"><span class="nav-number">11.</span> <span class="nav-text">chgrp</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -332,7 +335,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

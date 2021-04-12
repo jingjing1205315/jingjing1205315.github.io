@@ -146,6 +146,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/12/Array%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="April">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="April的个人小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/12/Array%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/" class="post-title-link" itemprop="url">Array方法对比</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-04-12 16:48:40 / Modified: 09:10:07" itemprop="dateCreated datePublished" datetime="2021-04-12T16:48:40+00:00">2021-04-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>各方法的区别，什么情况下用哪个方法比较好</p>
+<p>*因为map生成一个新数组，当你不打算使用返回的新数组却使用map是违背设计初衷的，请用forEach或者for-of替代。你不该使用map: A)你不打算使用返回的新数组，或/且 B) 你没有从回调函数中返回值。</p>
+<p>——由此总结：</p>
+<p>1）需要返回索引，用indexOf ，findIndex() 方法，能用前者不用后者；</p>
+<p>2）需要返回布尔，用includes(), some(), every()；</p>
+<p>3)  需要返回新数组，只要一个符合条件的新数组用find(),  要多个符合条件的新数组用filter(), 包含所有元素运算出来的新数组用map()；</p>
+<p>4）需要循环所有元素，用forEach()</p>
+<p>5)  需要循环部分，用for，符合条件，跳出</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/12/Array%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/11/sql%E6%9F%A5%E8%AF%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -177,7 +250,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
+                <time title="Modified: 2021-04-12 09:10:07" itemprop="dateModified" datetime="2021-04-12T09:10:07+00:00">2021-04-12</time>
               </span>
 
           
@@ -249,7 +322,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
+                <time title="Modified: 2021-04-12 09:10:07" itemprop="dateModified" datetime="2021-04-12T09:10:07+00:00">2021-04-12</time>
               </span>
 
           
@@ -321,7 +394,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
+                <time title="Modified: 2021-04-12 09:10:07" itemprop="dateModified" datetime="2021-04-12T09:10:07+00:00">2021-04-12</time>
               </span>
 
           
@@ -393,7 +466,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
+                <time title="Modified: 2021-04-12 09:10:07" itemprop="dateModified" datetime="2021-04-12T09:10:07+00:00">2021-04-12</time>
               </span>
 
           
@@ -465,7 +538,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
+                <time title="Modified: 2021-04-12 09:10:07" itemprop="dateModified" datetime="2021-04-12T09:10:07+00:00">2021-04-12</time>
               </span>
 
           
@@ -537,7 +610,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
+                <time title="Modified: 2021-04-12 09:10:07" itemprop="dateModified" datetime="2021-04-12T09:10:07+00:00">2021-04-12</time>
               </span>
 
           
@@ -609,7 +682,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
+                <time title="Modified: 2021-04-12 09:10:07" itemprop="dateModified" datetime="2021-04-12T09:10:07+00:00">2021-04-12</time>
               </span>
 
           
@@ -681,7 +754,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
+                <time title="Modified: 2021-04-12 09:10:07" itemprop="dateModified" datetime="2021-04-12T09:10:07+00:00">2021-04-12</time>
               </span>
 
           
@@ -753,7 +826,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
+                <time title="Modified: 2021-04-12 09:10:07" itemprop="dateModified" datetime="2021-04-12T09:10:07+00:00">2021-04-12</time>
               </span>
 
           
@@ -771,78 +844,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/12/01/write-bug/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="April">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="April的个人小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">自签名ssl证书生成与使用-知识搬运</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-26 19:32:46" itemprop="dateCreated datePublished" datetime="2020-11-26T19:32:46+00:00">2020-11-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 05:47:25" itemprop="dateModified" datetime="2021-03-17T05:47:25+00:00">2021-03-17</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>nginx的https证书配置</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -931,7 +932,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
