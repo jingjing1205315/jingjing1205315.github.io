@@ -6,6 +6,17 @@ tags:
 vim, cat, pwd, mkdir,touch, ls, chmod, chown, chgrp
 <!-- more -->
 ---------
+### sudo lsof -i:1025 查看端口1025被什么程序占用
+
+```
+COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+node    63350 jing   24u  IPv4 0x506ba2f2071e30df      0t0  TCP localhost:blackjack (LISTEN)
+```
+杀掉pid未63350的进程
+
+```
+sudo kill -9 63350
+```
 ### vim .gitignore
 编辑文件
 
