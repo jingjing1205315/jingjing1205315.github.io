@@ -134,8 +134,12 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 
 ### 版本回退
+有两种方式，revert和reset
+#### git revert -n 版本号
+指不要这个提交，其它提交还保留
 
-
+#### git reset --hard 版本号
+指回退到这个版本，后面的提交都不要。
 
 在Git中，用HEAD表示当前版本，也就是最新的提交1094adb...（注意我的提交ID和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
 
