@@ -173,3 +173,17 @@ new Swiper(".swiper-container", {
 不同的版本调用不用api，巨坑！
 一定要注意版本！一定要注意版本！！一定要注意版本！！！
 
+### html2canvas
+
+1. 图片跨域——前后端都需设置crossorigin，允许跨域
+2. css样式导致ios手机报错不能生成图——某css中背景图未设置background-size
+3. 图片未加载完成就开始绘制导致失败——绘制放在所有图片onload后
+4. 安卓手机多次保存，有时保存的非绘制图（1.0.0-rc.7）
+5. ios手机带3DTouch,长按出蓝色半透明遮罩出光标（1.0.0-rc.7）
+    
+
+
+#### 参考文章
+[浏览器端网页截图方案详解](https://www.zhihu.com/question/265838834)
+[html2canvas踩坑记](https://www.jianshu.com/p/e3a59a9fb817)
+
