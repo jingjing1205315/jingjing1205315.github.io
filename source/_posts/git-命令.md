@@ -5,6 +5,71 @@ tags:
 ---
 log,diff,reset,checkout
 <!-- more -->
+### 冲突解决
+查看暂存区中记录的冲突文件
+
+```
+git ls-files -s
+```
+日志如下：
+
+```
+100644 ea9df2ef42c073de18bde4ebdf50e0ac6b1cdd2d 2 README.txt 
+100644 633d2ed9d0ae01d0d07136c5b5bd857e4d945c14 3 README.txt 
+100644 17874eaa4a398cc94ed294c93fdbf50f7f843d88 0 team/user1.txt 
+100644 2dcb7b6ac06d93ea8e6af21ded690f5e171a407c 0 team/user2.txt
+```
+编号为2表示暂存区用于保存冲突文件在当前分支中修改的副本，查看该文件的内容执行如下命令：
+
+```
+git show :2:README.txt
+```
+
+编号为3的为暂存区用于保存当前冲突文件在合并版本中修改的副本
+
+```
+git show :3:README.txt
+```
+最后看看工作区的README.txt文件的内容：
+
+```
+cat README.txt
+```
+
+结果
+
+```
+"<<<<<<< HEAD"
+Hello, user2.
+"======="
+"Hello, user1."
+“>>>>>>> 04eed972e27e23a9874f984f08d6567e565d3436”
+```
+手动解决这个冲突
+
+选择我的
+
+```
+todo
+```
+选择他人的
+
+```
+todo
+
+
+```
+工作区和暂存区都干净时，都不要了
+
+```
+git reset --hard FETCH_HEAD
+或
+git merge --abort
+```
+git add -u -u参数表示把工作区被跟踪的文件添加到暂存区
+
+编号都变成0，这样就说明已经成功解决了冲突。
+
 ### git log 
 ```
 commit 96f50451c6f24a221c58c58a8cae136858fed97e (HEAD -> master)
