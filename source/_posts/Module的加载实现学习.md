@@ -4,6 +4,7 @@ date: 2020-07-20 20:00:00
 tags: 
 ---
 es6Module 和commonJS
+
 <!--more-->
 原文 [ES6标准入门](https://es6.ruanyifeng.com/#docs/module-loader)
 ### 1 浏览器加载

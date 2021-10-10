@@ -98,6 +98,7 @@ window.addEventListener('scroll', throttle(handle, 1000));
 节流中用时间戳或定时器都是可以的。更精确地，可以用时间戳+定时器，当第一次触发事件时马上执行事件处理函数，最后一次触发事件后也还会执行一次事件处理函数。
 
 节流throttle代码（时间戳+定时器）：
+
 ```// 节流throttle代码（时间戳+定时器）：
 var throttle = function(func, delay) {     
     var timer = null;     

@@ -3,7 +3,9 @@ title: vue vue-router vuex
 date: 2021-08-10 14:48:12
 tags:
 ---
+父子组件的生命周期
 
+<!--more-->
 # vue 
 
 ### 父子组件的生命周期

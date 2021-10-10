@@ -3,9 +3,30 @@ title: hexo+github上传图片到博客(知识搬运)
 date: 2020-11-26 18:03:10
 tags:
 ---
+hexo中使用思维导图
 hexo使用及如何添加图片
+
 <!--more-->
 
+### hexo中使用思维导图
+安装插件：
+
+```
+npm install hexo-simple-mindmap --save-dev
+```
+写法：
+
+```
+{% pullquote mindmap mindmap-md %}
+- [在 Hexo 中使用思维导图](https://hunterx.xyz/use-mindmap-in-hexo.html)
+  - 前言
+  - 操作指南
+    - 准备需要的文件
+    - 为主题添加 CSS/JS 文件
+  - 使用方法
+{% endpullquote %}
+```
+### hexo使用及如何添加图片
 1、cd到博客根目录下 查看_config.yml文件 查找 post_asset_folder 字段确定post_asset_folder 设置为true -> post_asset_folder:true
 
 2、当您设置 post_asset_folder 参数后，在建立文件时，Hexo 会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到此文件夹内，这样就可以更方便的使用资源。
@@ -39,7 +60,6 @@ npm install https://github.com/CodeFalling/hexo-asset-image --save
 <img style="margin:0" src="hexo-github上传图片到博客/203414-26eb8fcdcd17ceee.webp" />
 ```
 
-作者：iOS收藏家
-链接：https://www.jianshu.com/p/8d28027fec76
+参考：https://www.jianshu.com/p/8d28027fec76
 </div>
 
