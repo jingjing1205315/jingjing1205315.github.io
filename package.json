@@ -26,5 +26,8 @@
     "hexo-renderer-njucks": "^1.0.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0"
+  },
+  "devDependencies": {
+    "hexo-simple-mindmap": "^0.6.0"
   }
 }
