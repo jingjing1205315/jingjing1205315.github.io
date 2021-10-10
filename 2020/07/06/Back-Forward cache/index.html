@@ -28,7 +28,7 @@
 <meta property="og:description" content="往返缓存（Back&#x2F;Forward cache，下文中简称bfcache）是浏览器为了在用户页面间执行前进后退操作时拥有更加流畅体验的一种策略。该策略具体表现为，当用户前往新页面时，将当前页面的浏览器DOM状态保存到bfcache中；当用户点击后退按钮的时候，将页面直接从bfcache中加载，节省了网络请求的时间。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-06T20:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-10T05:31:30.964Z">
+<meta property="article:modified_time" content="2021-10-10T05:41:37.197Z">
 <meta property="article:author" content="April">
 <meta name="twitter:card" content="summary">
 
@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-10 05:31:30" itemprop="dateModified" datetime="2021-10-10T05:31:30+00:00">2021-10-10</time>
+                <time title="Modified: 2021-10-10 05:41:37" itemprop="dateModified" datetime="2021-10-10T05:41:37+00:00">2021-10-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,7 +226,7 @@
 <p>这样页面会重新加载，但缓存的页面会闪现一下。如果页面有load动画，动画在闪现的缓存页面也会执行。</p>
 <p><strong>解决方案：</strong>首页进入页面，动画执行完，移除动画dom，这样回退的时候，在缓存的页面就不会有动画。</p>
 <p><strong>完美方案：</strong>缓存页面不闪现。（未解决）</p>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
     </div>
 
     
