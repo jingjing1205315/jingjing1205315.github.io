@@ -19,15 +19,11 @@ node -v
 ```
 出来版本号，说明安装成功
 
-## # node中，模块分两类
+# node中，模块分两类，核心模块和文件模块
 
 ## 核心模块也叫系统模块
 
 HTTP模块、URL模块、Fs模块等可直接引入使用
-
-## 文件模块又叫自定义模块
-
-把公共功能抽离成模块，通过exports或者module.exports 暴露出去
 
 ### http 模块
 
@@ -269,6 +265,9 @@ fs.unlink('./aaa/aaa', (err)=>{
     console.log('删除文件成功') // 删除目录 
 })
 ```
+## 文件模块又叫自定义模块
+
+把公共功能抽离成模块，通过exports或者module.exports 暴露出去
 
 # commonJs
 
@@ -298,7 +297,7 @@ console.log(utils) // exports --> { addStr: [Function: addStr] } module.exports 
 
 **建议对象用module.exprots暴露，方法用exports暴露**
 
-#### node_modules
+## node_modules
 
 node中默认回去node_modules中寻找模块
 
@@ -342,7 +341,7 @@ const axios = require('axios');
 
 node默认模块都放在node_modules中，引入模块时，会去找node_modules中模块的index.js
 
-#### package.json
+## package.json
 
 模块中没有index.js，可不可以呢？
 
@@ -383,7 +382,7 @@ npm init
 
 # 包与node
 
-#### 规范的包目录
+## 规范的包目录
 
 - Package.json 包描述文件
 
@@ -395,7 +394,7 @@ npm init
 
   
 
-#### npm
+## npm
 
 最大的开源代码的生态系统，允许用户上传和下载自定义node包、命令行工具
 
@@ -403,7 +402,7 @@ npm init
 npm init --yes
 ```
 
-##### md5
+### md5
 
 生成package.json后，去npmjs.com搜索你需要的包，下载第三方包, 如下载md5包
 
@@ -436,7 +435,7 @@ Package.json中的dependencies就会有这个包, **建议：** npm install 包 
 
 
 
-##### silly-datetime
+## silly-datetime
 
 ```
 npm install silly-datetime --save
@@ -446,7 +445,7 @@ sd.format(new Date(), 'YYYY-MM-DD HH:mm') // 2021-10-12 12:48
 
 # npm 命令
 
-###### 查看npm版本
+## 查看npm版本
 
 ```
 npm -v  //6.4.1
@@ -460,7 +459,7 @@ npm install [包名]
 
 也可以删掉package.json中的包，删掉node_modules中的包，允许 npm i来卸载
 
-###### npm list
+## npm list
 
 ```
 npm list
@@ -474,7 +473,7 @@ db@0.0.1 /Users/**/Documents/nodejs_demo/node_modules/db
 */
 ```
 
-###### Npm info moduleName
+## Npm info moduleName
 
 ```
 npm info moduleName
@@ -506,13 +505,13 @@ latest: 2.3.0
 published a year ago by pvorb <paul@vorba.ch>
 ```
 
-###### 指定版本安装
+## 指定版本安装
 
 ```
 npm install node-media-server@2.1.1
 ```
 
-##### 版本号前缀
+## 版本号前缀
 
 ```
 "dependencies": {
