@@ -451,7 +451,7 @@ sd.format(new Date(), 'YYYY-MM-DD HH:mm') // 2021-10-12 12:48
 npm -v  //6.4.1
 ```
 
-###### 安装：无包名代表安装package.json里的所有包。卸载：npm uninstall 包名
+## 安装：无包名代表安装package.json里的所有包。卸载：npm uninstall 包名
 
 ```
 npm install [包名]
