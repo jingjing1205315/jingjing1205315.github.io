@@ -28,7 +28,7 @@
 <meta property="og:description" content="快速排序，两数之和，fibonacci, 生成dom树">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-10T22:03:46.000Z">
-<meta property="article:modified_time" content="2021-10-13T15:19:37.845Z">
+<meta property="article:modified_time" content="2021-10-14T02:15:24.277Z">
 <meta property="article:author" content="April">
 <meta name="twitter:card" content="summary">
 
@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-13 15:19:37" itemprop="dateModified" datetime="2021-10-13T15:19:37+00:00">2021-10-13</time>
+                <time title="Modified: 2021-10-14 02:15:24" itemprop="dateModified" datetime="2021-10-14T02:15:24+00:00">2021-10-14</time>
               </span>
 
           
@@ -197,6 +197,8 @@
       
         <p>快速排序，两数之和，fibonacci, 生成dom树</p>
 <a id="more"></a>
+
+<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function sortQuick(arr)&#123;</span><br><span class="line">    &#x2F;&#x2F; 当数组小于等于一个元素时，直接返回</span><br><span class="line">    if(arr &amp;&amp; arr.length &lt;&#x3D; 1) return arr;</span><br><span class="line">    &#x2F;&#x2F; 获取中间位置</span><br><span class="line">    let middleIndex &#x3D; Math.floor(arr.length &#x2F; 2);</span><br><span class="line">    &#x2F;&#x2F; 获取中间位置的值,并从原数组中删除该值</span><br><span class="line">    let middleValue &#x3D; arr.splice(middleIndex, 1)[0];</span><br><span class="line">    let prevArr &#x3D; [], nextArr &#x3D; [], middleArr &#x3D; [middleValue];</span><br><span class="line">    for( let i &#x3D; 0, l &#x3D; arr.length; i &lt; l; i++)&#123;</span><br><span class="line">        &#x2F;&#x2F; 循环剩余原数组，将值与中间值比较，小的放到preArr，大的放到nextArr，相等的放到middleArr</span><br><span class="line">        if(arr[i] &gt; middleValue) nextArr.push(arr[i]);</span><br><span class="line">        else if(arr[i] &lt; middleValue) prevArr.push(arr[i]);</span><br><span class="line">        else middleArr.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 递归遍历prevArr，与nextArr，并将prevArr，middleValue，nextArr合并</span><br><span class="line">    return sortQuick(prevArr).concat(middleArr, sortQuick(nextArr));</span><br><span class="line">&#125;</span><br><span class="line">console.log(sortQuick([1,2,2,8,3, 3])) &#x2F;&#x2F; [ 1, 2, 2, 3, 3, 8 ]</span><br></pre></td></tr></table></figure>
 
 <h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h1><p>时间复杂度o(n), 空间复杂度o(n);</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">  * </span><br><span class="line">  * @param numbers int整型一维数组 </span><br><span class="line">  * @param target int整型 </span><br><span class="line">  * @return int整型一维数组</span><br><span class="line">  *&#x2F;</span><br><span class="line">function twoSum( numbers ,  target ) &#123;</span><br><span class="line">    &#x2F;&#x2F; write code here</span><br><span class="line">    if(!numbers || numbers.length &lt; 2 ) return [];</span><br><span class="line">    let obj &#x3D; &#123;[numbers[0]]: 1&#125;;</span><br><span class="line">    for(let i &#x3D; 1,l &#x3D; numbers.length; i&lt;l; i++)&#123;    </span><br><span class="line">        let tem &#x3D; target - numbers[i];</span><br><span class="line">        if(obj[tem] &gt;&#x3D; 1)&#123;</span><br><span class="line">            return [obj[tem], i+1]</span><br><span class="line">        &#125;</span><br><span class="line">        obj[numbers[i]] &#x3D; i+1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    twoSum : twoSum</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -286,7 +288,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#两数之和"><span class="nav-number">1.</span> <span class="nav-text">两数之和</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斐波那契fibonacci"><span class="nav-number">2.</span> <span class="nav-text">斐波那契fibonacci</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#返回第n个斐波那契数。-f-1-1-f-2-1-等"><span class="nav-number">2.1.</span> <span class="nav-text">返回第n个斐波那契数。 f(1) &#x3D; 1, f(2) &#x3D; 1 等</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成dom树"><span class="nav-number">3.</span> <span class="nav-text">生成dom树</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快速排序"><span class="nav-number">1.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#两数之和"><span class="nav-number">2.</span> <span class="nav-text">两数之和</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斐波那契fibonacci"><span class="nav-number">3.</span> <span class="nav-text">斐波那契fibonacci</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#返回第n个斐波那契数。-f-1-1-f-2-1-等"><span class="nav-number">3.1.</span> <span class="nav-text">返回第n个斐波那契数。 f(1) &#x3D; 1, f(2) &#x3D; 1 等</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成dom树"><span class="nav-number">4.</span> <span class="nav-text">生成dom树</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
