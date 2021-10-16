@@ -413,7 +413,7 @@ updateUser () {
 </script>
 ```
 ## 列表渲染
-将[1,2,3,4,5]转化为[<li key="0">1</li>, <li key="1">2</li>,....]，将转化后的数组放在相应的位置
+将[1,2,3,4,5]转化为[&lt;li key="0"&gt;1&lt;/li&gt;, &lt;li key="1"&gt;2&lt;/li&gt;,....]，将转化后的数组放在相应的位置
 
 ```
 <script type="text/babel">        
