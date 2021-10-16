@@ -211,7 +211,7 @@ view
 组件更新阶段
 组件销毁阶段
 
-<img src="./react学习/16775500-8d325f8093591c76.webp" style="width: 400px;text-align: left;margin:0;" />
+<img src="./react学习/16775500-8d325f8093591c76.webp" style="width: 100%;text-align: left;margin:0;" />
 
 ## 初始化和加载阶段
 
