@@ -23,7 +23,7 @@ react-router^5.12.0
 nodejs 是基于chrome v8引擎的JavaScript运行环境
 #### 前端开发环境
 webpack  npm插件  server
-#### 服务端动态编程于洋
+#### 服务端动态编程语言
 写接口、链接数据库、Node web
 
 #### node黑盒
@@ -116,8 +116,18 @@ react.components()
     ReactDOM.render(hello, document.getElementById('app'));
 </script>
 ```
-# JSX介绍
-js的语法糖 在js中编写html代码
+## JSX介绍
+JSX， 一种 JavaScript 的语法扩展。元素是构成 React 应用的最小单位，JSX 就是用来声明 React 当中的元素。 在js中编写html代码
+
+- 添加自定义属性需要使用 data- 前缀。
+
+- 在 JSX 中不能使用 if else 语句，但可以使用 conditional (三元运算) 表达式来替代
+
+- 注释需要写在花括号中
+
+- JSX 允许在模板中插入数组，数组会自动展开所有成员：
+
+- 一些标识符像 class 和 for 不建议作为 XML 属性名。作为替代，React DOM 使用 className 和 htmlFor 来做对应的属性。
 
 ```
 <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>  // 增加babel解析
@@ -133,7 +143,7 @@ js的语法糖 在js中编写html代码
 </script>
 ```
 
-# 元素渲染
+## 元素渲染
 model
 
 ```
@@ -158,9 +168,9 @@ view
 可以在html结构中看到，有差异才渲染，变动的只有：
 <img src="./react学习/1634394697551.jpg" style="width: 400px;text-align: left;margin:0;" />
 
-# 组件和props
-## React.createClass(); // 废弃，笨重，不灵活
-## 函数式组件（无状态组件）
+## 组件和props
+### React.createClass(); // 废弃，笨重，不灵活
+### 函数式组件（无状态组件）
 
 ```
 <script type="text/babel">
@@ -176,7 +186,7 @@ view
         document.getElementById('app'));
 </script>
 ```
-## React.Component
+### React.Component
 
 ```
 <script type="text/babel">
@@ -194,7 +204,7 @@ view
 </script>
 ```
 
-# React生命周期
+## React生命周期
 执行过程，四个阶段：
 组件初始化阶段
 组件加载阶段
