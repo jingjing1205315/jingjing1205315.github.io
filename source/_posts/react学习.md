@@ -134,6 +134,7 @@ js的语法糖 在js中编写html代码
 ```
 
 # 元素渲染
+model
 
 ```
 <div id="app"></div>
@@ -141,7 +142,7 @@ js的语法糖 在js中编写html代码
     function tick(){
         var time = new Date().toLocaleTimeString();
         var name = 'liming';
-        var dom = <div>
+        var dom = <div> // 多个标签时一定要有根元素
                 <h1 className="red" name="liming">hello {name}</h1>
                 <h2>现在是：{time}</h2>
             </div>
@@ -153,5 +154,318 @@ js的语法糖 在js中编写html代码
     
 </script>
 ```
-可以在html结构中看到，变动的只有：
-<img src="./react学习/1634394697551.jpg" style="width: 400px;text-align: left" />
+view
+可以在html结构中看到，有差异才渲染，变动的只有：
+<img src="./react学习/1634394697551.jpg" style="width: 400px;text-align: left;margin:0;" />
+
+# 组件和props
+## React.createClass(); // 废弃，笨重，不灵活
+## 函数式组件（无状态组件）
+
+```
+<script type="text/babel">
+    function Hello(props){ // 函数式组件，无生命周期
+        return <div>
+                <h1 className="red">hello {props.name}</h1>
+                <h2>现在是：{props.time}</h2>
+            </div>
+    }
+    
+    ReactDOM.render(
+        <Hello time="晚上" name='LiMing' />,
+        document.getElementById('app'));
+</script>
+```
+## React.Component
+
+```
+<script type="text/babel">
+    class Hello extends React.Component{ // 正常组件，有生命周期
+        render(){
+            return <div>
+                <h1 className="red">hello { this.props.name}</h1>
+                <h2>现在是：{ this.props.time}</h2>
+            </div>
+        }
+    }
+    ReactDOM.render(
+        <Hello time="晚上" name='LiMing' />,
+        document.getElementById('app'));
+</script>
+```
+
+# React生命周期
+执行过程，四个阶段：
+组件初始化阶段
+组件加载阶段
+组件更新阶段
+组件销毁阶段
+
+<img src="./react学习/16775500-8d325f8093591c76.webp" style="width: 400px;text-align: left;margin:0;" />
+
+## 初始化和加载阶段
+
+```
+<script type="text/babel">        
+    class Hello extends React.Component{ // 正常组件，有生命周期
+        constructor(props){
+            console.log('初始化阶段')
+            // 初始化props
+            super(props)
+            // 初始化状态
+            this.state = {
+                name: 'Liming',
+                time: '晚上'
+            }
+        }
+        componentWillMount(){
+            console.log('组件加载前')
+        }
+        componentDidMount(){
+            console.log('组件加载后')
+        }
+        
+        render(){
+            console.log('组件加载或组件更新')
+            return <div>
+                <h1 className="red">hello { this.state.name}</h1>
+                <h2>现在是：{ this.state.time}</h2>
+                <button onClick={this.updateUser} >更新</button>
+            </div>
+        }
+    }
+    ReactDOM.render(
+        <Hello time="晚上" name='LiMing' />,
+        document.getElementById('app'));
+</script>
+```
+打印顺序
+
+```
+初始化阶段constructor
+组件加载前componentWillMount
+组件加载或组件更新render
+组件加载后componentDidMount
+```
+## 更新阶段
+```
+<script type="text/babel">        
+    class Hello extends React.Component{ // 正常组件，有生命周期
+        constructor(props){
+            console.log('初始化阶段')
+            // 初始化props
+            super(props)
+            // 初始化状态
+            this.state = {
+                name: 'Liming',
+                time: '晚上'
+            }
+        }
+        componentWillMount(){
+            console.log('组件加载前')
+        }
+        componentDidMount(){
+            console.log('组件加载后')
+        }
+        updateUser = () => { // 需用箭头函数 或updateUser = function() {} 不然this指向undefined
+            // this.state.name = 'Tim'; // 错误，不会触发render
+            this.setState({
+                name: 'Tim'
+            })
+        }
+        shouldComponentUpdate(){
+            return true; // true 代表需要更新 false代表不更新
+        }
+        componentWillUpdate(){
+            console.log('组件将要更新')
+        }
+        componentDidUpdate(){
+            console.log('组件已经更新')
+        }
+        render(){
+            console.log('组件加载或组件更新')
+            return <div>
+                <h1 className="red">hello { this.state.name}</h1>
+                <h2>现在是：{ this.state.time}</h2>
+                <button onClick={this.updateUser} >更新</button> // onClick后的函数并一定不要加()
+            </div>
+        }
+    }
+    ReactDOM.render(
+        <Hello time="晚上" name='LiMing' />,
+        document.getElementById('app'));
+</script>
+```
+
+```
+数据是否需要更新shouldComponentUpdate
+组件将要更新componentWillUpdate
+组件加载或组件更新render
+组件已经更新componentDidUpdate
+```
+## 事件处理
+
+react组件中普通的方法中的this指向undefined 可以用箭头函数
+
+```
+updateUser () { 
+    console.log(this) // undefined
+    this.setState({
+        name: 'Tim'
+    })
+}
+```
+但还是想用这种写法的话
+
+```
+<script type="text/babel">        
+    class Hello extends React.Component{ // 正常组件，有生命周期
+        constructor(props){
+            console.log('初始化阶段')
+            // 初始化props
+            super(props)
+            // 初始化状态
+            this.state = {
+                name: 'Liming',
+                time: '晚上'
+            }
+            this.updateUser = this.updateUser.bind(this); // 给自己定义事件绑定this
+        }
+        
+        updateUser () { // react组件中普通的方法中的this指向undefined 可以用箭头函数
+            console.log(this) // 组件实例
+            this.setState({
+                name: 'Tim'
+            })
+        }
+        
+        render(){
+            console.log('组件加载或组件更新')
+            return <div>
+                <h1 className="red">hello { this.state.name}</h1>
+                <h2>现在是：{ this.state.time}</h2>
+                <button onClick={this.updateUser} >更新</button>
+            </div>
+        }
+    }
+    ReactDOM.render(
+        <Hello time="晚上" name='LiMing' />,
+        document.getElementById('app'));
+</script>
+```
+
+或者修改点击事件
+
+```
+<button onClick={() => this.updateUser()} >更新</button>
+或
+<button onClick={this.updateUser.bind(this)} >更新</button>
+```
+## 条件判断
+通过if else或者三目判断出应用的组件，再把组件放到应用的位置
+
+```
+<script type="text/babel">        
+    function Login(props){
+        return <button onClick={props.updateUser}>登录</button>
+    }
+    function Logout(props){
+        return <button onClick={props.updateUser}>登出</button>
+    }
+    class Hello extends React.Component{ // 正常组件，有生命周期
+        state = {
+            name: 'LiMing',
+            isLogin: false
+        }
+        updateUser = ()=> { // react组件中普通的方法中的this指向undefined 可以用箭头函数
+            this.setState({
+                isLogin: !this.state.isLogin
+            })
+        }
+        
+        render(){
+            const {isLogin} = this.state;
+            let button;
+            if(isLogin){ // 条件判断button为登录还是登出，也可用三目
+                button = <Login updateUser={this.updateUser}/> // 向子组件传递自定义事件，子组件可通过出发传递的事件来修改父组件的state
+            }else{
+                button = <Logout updateUser={this.updateUser}/>
+            }
+            return <div>
+                <h1 className="red">hello { this.state.name}</h1>
+                {button}
+            </div>
+        }
+    }
+    ReactDOM.render(
+        <Hello time="晚上" name='LiMing' />,
+        document.getElementById('app'));
+</script>
+```
+## 列表渲染
+将[1,2,3,4,5]转化为[<li key="0">1</li>, <li key="1">2</li>,....]，将转化后的数组放在相应的位置
+
+```
+<script type="text/babel">        
+    class List extends React.Component{ // 正常组件，有生命周期
+        state = {
+            list: [1,2,3,4,5],
+        }
+        render(){
+            const { list } = this.state;
+            return <ul>
+                {list.map((item, i) => <li key={i}>{item}</li>)}
+            </ul>
+        }
+    }
+    ReactDOM.render(
+        <List  />,
+        document.getElementById('app'));
+</script>
+```
+
+## 表单应用
+需要在表单数据修改onChange，主动更新state中的value，
+
+```
+this.setState({
+    val: event.target.value
+})
+```
+
+```
+<script type="text/babel">        
+    class TodoList extends React.Component{ // 正常组件，有生命周期
+        state = {
+            val: '',
+            list: [],
+        }
+        changeHandler = (event)=>{
+            this.setState({
+                val: event.target.value
+            })
+            // this.state.val = event.target.value; // 直接赋值input框的输入都输不进去
+        }
+        add = ()=>{
+
+            this.state.list.push(this.state.val);
+            this.setState({
+                list: this.state.list
+            })
+        }
+        render(){
+            const { val, list } = this.state;
+            return <div>
+                <input type="text" value={val} onChange={this.changeHandler} />
+                <button onClick={this.add} >添加</button>
+                <ul>
+                    {list.map((item, i) => <li key={i}>{item}</li>)}
+                </ul>
+            </div>
+        }
+    }
+    ReactDOM.render(
+        <TodoList  />,
+        document.getElementById('app'));
+</script>
+```
