@@ -213,7 +213,7 @@ view
 
 <img src="./react学习/16775500-8d325f8093591c76.webp" style="width: 100%;text-align: left;margin:0;" />
 
-## 初始化和加载阶段
+### 初始化和加载阶段
 
 ```
 <script type="text/babel">        
@@ -257,7 +257,7 @@ view
 组件加载或组件更新render
 组件加载后componentDidMount
 ```
-## 更新阶段
+### 更新阶段
 ```
 <script type="text/babel">        
     class Hello extends React.Component{ // 正常组件，有生命周期
