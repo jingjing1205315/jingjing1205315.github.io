@@ -4,7 +4,8 @@ date: 2021-10-16 20:27:07
 tags:
 ---
 
-react入门学习，来自bilibili腾讯课堂
+react入门学习，来自bilibili腾讯课堂，
+[react官网](https://react.docschina.org/)
 
 <!--more-->
 
