@@ -28,7 +28,7 @@
 <meta property="og:description" content="快速排序，两数之和，fibonacci, 生成dom树">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-10T22:03:46.000Z">
-<meta property="article:modified_time" content="2021-10-29T15:35:17.641Z">
+<meta property="article:modified_time" content="2021-10-29T15:40:38.875Z">
 <meta property="article:author" content="April">
 <meta name="twitter:card" content="summary">
 
@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 15:35:17" itemprop="dateModified" datetime="2021-10-29T15:35:17+00:00">2021-10-29</time>
+                <time title="Modified: 2021-10-29 15:40:38" itemprop="dateModified" datetime="2021-10-29T15:40:38+00:00">2021-10-29</time>
               </span>
 
           
@@ -212,6 +212,7 @@
 <li>循环不能选择开始和结束位置</li>
 <li>循环不能中断</li>
 <li>循环不能后退</li>
+<li>异步语句forEach可以拿到每一个i值</li>
 </ul>
 <h1 id="斐波那契fibonacci"><a href="#斐波那契fibonacci" class="headerlink" title="斐波那契fibonacci"></a>斐波那契fibonacci</h1><h2 id="返回第n个斐波那契数。-f-1-1-f-2-1-等"><a href="#返回第n个斐波那契数。-f-1-1-f-2-1-等" class="headerlink" title="返回第n个斐波那契数。 f(1) = 1, f(2) = 1 等"></a>返回第n个斐波那契数。 f(1) = 1, f(2) = 1 等</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 时间复杂度o(n), 空间复杂度o(n);</span><br><span class="line">&#x2F;&#x2F; 通过全部用例 运行时间 2383ms 占用内存 77896KB</span><br><span class="line">function fibonacci(n) &#123;</span><br><span class="line">    if(typeof n !&#x3D;&#x3D; &#39;number&#39;) return &#39;请输入一个正整数&#39;;</span><br><span class="line">    let aFib &#x3D; [1,1];</span><br><span class="line">    for (let i &#x3D; 2; i&lt; n; i++)&#123;</span><br><span class="line">        aFib.push(aFib[i-1]+aFib[i-2])</span><br><span class="line">    &#125;</span><br><span class="line">    return aFib[n-1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
