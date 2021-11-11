@@ -6,6 +6,10 @@ tags:
 nginx的https证书配置
 <!--more-->
 
+Node升级为12以上版本，启动dev-server，不再能展示网站，报错ERR_SSL_KEY_USAGE_INCOMPATIBLE，是因为node12以上版本启用TLS 1.3版本，在chrome 75以上版本之前的自签名数字证书不能验证通过，删除keyUsage,重新生成证书即可。
+
+以上为20211108更新
+---------------------------------------------------
 ### 创建密钥
 首先，进入 nginx 配置目录，创建 openssl 配置文件 **req.conf**，其中的 CN, DNS.1, DNS.2 等需要替换为自己的域名：
 
