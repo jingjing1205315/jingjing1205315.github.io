@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/1606391025496.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/1606391344586.jpg">
 <meta property="article:published_time" content="2020-11-26T19:32:46.000Z">
-<meta property="article:modified_time" content="2021-11-07T14:24:55.485Z">
+<meta property="article:modified_time" content="2021-11-11T15:05:49.141Z">
 <meta property="article:author" content="April">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/11/26/ssl%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/1606391025496.jpg">
@@ -184,7 +184,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-07 14:24:55" itemprop="dateModified" datetime="2021-11-07T14:24:55+00:00">2021-11-07</time>
+                <time title="Modified: 2021-11-11 15:05:49" itemprop="dateModified" datetime="2021-11-11T15:05:49+00:00">2021-11-11</time>
               </span>
 
           
@@ -201,7 +201,8 @@
         <p>nginx的https证书配置</p>
 <a id="more"></a>
 
-<h3 id="创建密钥"><a href="#创建密钥" class="headerlink" title="创建密钥"></a>创建密钥</h3><p>首先，进入 nginx 配置目录，创建 openssl 配置文件 <strong>req.conf</strong>，其中的 CN, DNS.1, DNS.2 等需要替换为自己的域名：</p>
+<p>Node升级为12以上版本，启动dev-server，不再能展示网站，报错ERR_SSL_KEY_USAGE_INCOMPATIBLE，是因为node12以上版本启用TLS 1.3版本，在chrome 75以上版本之前的自签名数字证书不能验证通过，删除keyUsage,重新生成证书即可。</p>
+<h2 id="以上为20211108更新"><a href="#以上为20211108更新" class="headerlink" title="以上为20211108更新"></a>以上为20211108更新</h2><h3 id="创建密钥"><a href="#创建密钥" class="headerlink" title="创建密钥"></a>创建密钥</h3><p>首先，进入 nginx 配置目录，创建 openssl 配置文件 <strong>req.conf</strong>，其中的 CN, DNS.1, DNS.2 等需要替换为自己的域名：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[req]</span><br><span class="line">distinguished_name &#x3D; req_distinguished_name</span><br><span class="line">x509_extensions &#x3D; v3_req</span><br><span class="line">prompt &#x3D; no</span><br><span class="line">[req_distinguished_name]</span><br><span class="line">C &#x3D; US</span><br><span class="line">ST &#x3D; VA</span><br><span class="line">L &#x3D; SomeCity</span><br><span class="line">O &#x3D; MyCompany</span><br><span class="line">OU &#x3D; MyDivision</span><br><span class="line">CN &#x3D; www.company.com</span><br><span class="line">[v3_req]</span><br><span class="line">keyUsage &#x3D; keyEncipherment, dataEncipherment</span><br><span class="line">extendedKeyUsage &#x3D; serverAuth</span><br><span class="line">subjectAltName &#x3D; @alt_names</span><br><span class="line">[alt_names]</span><br><span class="line">DNS.1 &#x3D; www.company.net</span><br><span class="line">DNS.2 &#x3D; company.com</span><br><span class="line">DNS.3 &#x3D; company.net</span><br></pre></td></tr></table></figure>
 
 <p>如果域名较多，且都隶属于同一个主域名，可以将 DNS.1、DNS.2 等简化为 *.example.com。即：</p>
@@ -298,7 +299,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建密钥"><span class="nav-number">1.</span> <span class="nav-text">创建密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-nginx"><span class="nav-number">2.</span> <span class="nav-text">配置 nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置浏览器"><span class="nav-number">3.</span> <span class="nav-text">配置浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#采坑"><span class="nav-number">4.</span> <span class="nav-text">采坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转载自"><span class="nav-number">5.</span> <span class="nav-text">转载自</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以上为20211108更新"><span class="nav-number">1.</span> <span class="nav-text">以上为20211108更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建密钥"><span class="nav-number">1.1.</span> <span class="nav-text">创建密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-nginx"><span class="nav-number">1.2.</span> <span class="nav-text">配置 nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置浏览器"><span class="nav-number">1.3.</span> <span class="nav-text">配置浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#采坑"><span class="nav-number">1.4.</span> <span class="nav-text">采坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转载自"><span class="nav-number">1.5.</span> <span class="nav-text">转载自</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
