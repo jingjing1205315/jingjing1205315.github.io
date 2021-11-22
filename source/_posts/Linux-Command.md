@@ -3,7 +3,7 @@ title: Linux Command
 date: 2021-01-14 19:05:45
 tags:
 ---
-vim, cat, pwd, mkdir,touch, ls, chmod, chown, chgrp
+lsof kill vim, cat, pwd, mkdir,touch, ls, chmod, chown, chgrp
 <!-- more -->
 ---------
 ### sudo lsof -i:1025 查看端口1025被什么程序占用
@@ -120,6 +120,30 @@ chgrp 组名 目录
 ```
 chgrp localaccounts mysql-init
 ```
+# Linux grep 命令用于查找文件里符合条件的字符串。
 
+# tar tape archive 命令用于备份文件
+tar 是用来建立，还原备份文件的工具程序，它可以加入，解开备份文件内的文件
 
+压缩文件 非打包
+
+```
+# touch a.c       
+# tar -czvf test.tar.gz a.c   //压缩 a.c文件为test.tar.gz
+a.c
+```
+
+列出压缩文件内容
+
+```
+# tar -tzvf test.tar.gz 
+-rw-r--r-- root/root     0 2010-05-24 16:51:59 a.c
+```
+
+解压文件
+
+```
+# tar -xzvf test.tar.gz 
+a.c
+```
 
