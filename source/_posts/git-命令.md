@@ -6,7 +6,23 @@ tags:
 log,diff,reset,checkout
 
 <!-- more -->
-### 冲突解决
+# Git stash
+（1）git stash save "save message"  : 执行存储时，添加备注，方便查找，只有git stash 也要可以的，但查找时不方便识别。
+
+（2）git stash list  ：查看stash了哪些存储
+
+（3）git stash show ：显示做了哪些改动，默认show第一个存储,如果要显示其他存贮，后面加stash@{$num}，比如第二个 git stash show stash@{1}
+
+（4）git stash show -p : 显示第一个存储的改动，如果想显示其他存存储，命令：git stash show  stash@{$num}  -p ，比如第二个：git stash show  stash@{1}  -p
+
+（5）git stash apply :应用某个存储,但不会把存储从存储列表中删除，默认使用第一个存储,即stash@{0}，如果要使用其他个，git stash apply stash@{$num} ， 比如第二个：git stash apply stash@{1} 
+
+（6）git stash pop ：命令恢复之前缓存的工作目录，将缓存堆栈中的对应stash删除，并将对应修改应用到当前的工作目录下,默认为第一个stash,即stash@{0}，如果要应用并删除其他stash，命令：git stash pop stash@{$num} ，比如应用并删除第二个：git stash pop stash@{1}
+
+（7）git stash drop stash@{$num} ：丢弃stash@{$num}存储，从列表中删除这个存储
+
+（8）git stash clear ：删除所有缓存的stash
+# 冲突解决
 查看暂存区中记录的冲突文件
 
 ```
@@ -71,7 +87,7 @@ git add -u -u参数表示把工作区被跟踪的文件添加到暂存区
 
 编号都变成0，这样就说明已经成功解决了冲突。
 
-### git log 
+# git log 
 ```
 commit 96f50451c6f24a221c58c58a8cae136858fed97e (HEAD -> master)
 Author: April <zhangyajing1205315@163.com>
@@ -131,7 +147,7 @@ Date:   Thu Jan 21 19:54:08 2021 +0800
 ```
 
 
-#### git log --pretty=oneline
+## git log --pretty=oneline
 ```
 f571563b5593893b5daed871fc03575b32133046 (HEAD -> learn_git_branch) Merge branch 'prelive' of code.qschou.com:qschou/h5_fund into prelive
 9d51a3471043a39203be9178cbafc98b0e70d71d Merge branch 'feature-73979557-zyj更换项目分享内容' into prelive
@@ -139,7 +155,7 @@ ebf3439722718482b1bf283d45cd4ac70c681392 Merge branch 'xc-baodai' into prelive
 566971c7776e9b9c699a33b3ecb6f35f35b65e91 (origin/xc-baodai) no message
 ```
 
-### git diff
+# git diff
 追踪当前**修改**内容。
 
 ```
@@ -174,7 +190,7 @@ Changes not staged for commit:
 	modified:   source/_posts/Linux-Command.md
 ```
  
-### git reset --hard 恢复文件为HEAD版本
+# git reset --hard 恢复文件为HEAD版本
 
 可以恢复Changes not staged for commit中的文件。
 
@@ -199,12 +215,12 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 
-### 版本回退
+# 版本回退
 有两种方式，revert和reset
-#### git revert -n 版本号
+## git revert -n 版本号
 指不要这个提交，其它提交还保留
 
-#### git reset --hard 版本号
+## git reset --hard 版本号
 指回退到这个版本，后面的提交都不要。
 
 在Git中，用HEAD表示当前版本，也就是最新的提交1094adb...（注意我的提交ID和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
@@ -259,7 +275,7 @@ Untracked files:
 no changes added to commit (use "git add" and/or "git commit -a")
 
 ```
-#### git checkout -- 文件名
+# git checkout -- 文件名
 -- 文件名 不可少，要不然会变成切换分支
 也可以
 

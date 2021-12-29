@@ -6,7 +6,9 @@ tags:
 lsof kill vim, cat, pwd, mkdir,touch, ls, chmod, chown, chgrp
 <!-- more -->
 ---------
-### sudo lsof -i:1025 查看端口1025被什么程序占用
+
+# 系统管理
+## sudo lsof -i:1025 查看端口1025被什么程序占用（lists openfiles）
 
 ```
 COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
@@ -17,22 +19,87 @@ node    63350 jing   24u  IPv4 0x506ba2f2071e30df      0t0  TCP localhost:blackj
 ```
 sudo kill -9 63350
 ```
-### vim .gitignore
+
+lsof替代了netstat和ps的全部工作
+
+## 命令大全 man lsof
+
+```
+lsof abc.txt 显示开启文件abc.txt的进程
+
+lsof -i :22 知道22端口现在运行什么程序
+
+lsof -c abc 显示abc进程现在打开的文件
+
+lsof -g gid 显示归属gid的进程情况
+
+lsof +d /usr/local/ 显示目录下被进程开启的文件
+
+lsof +D /usr/local/ 同上，但是会搜索目录下的目录，时间较长
+
+lsof -d 4 显示使用fd为4的进程 www.2cto.com
+
+lsof -i 用以显示符合条件的进程情况
+
+语法: lsof -i[46] [protocol][@hostname|hostaddr][:service|port]
+
+46 --> IPv4 or IPv6
+
+protocol --> TCP or UDP
+
+hostname --> Internet host name
+
+hostaddr --> IPv4位置
+
+service --> /etc/service中的 service name (可以不只一个)
+
+port --> 端口号 (可以不只一个)
+
+例子: TCP:25 - TCP and port 25
+
+@1.2.3.4 - Internet IPv4 host address 1.2.3.4
+
+tcp@ohaha.ks.edu.tw:ftp - TCP protocol hosthaha.ks.edu.tw service name:ftp
+
+lsof -n 不将IP转换为hostname，缺省是不加上-n参数
+
+例子: lsof -i tcp@ohaha.ks.edu.tw:ftp -n
+
+lsof -p 12 看进程号为12的进程打开了哪些文件
+
+lsof +|-r [t] 控制lsof不断重复执行，缺省是15s刷新
+
+-r，lsof会永远不断的执行，直到收到中断信号
+
++r，lsof会一直执行，直到没有档案被显示
+
+例子：不断查看目前ftp连接的情况：lsof -i tcp@ohaha.ks.edu.tw:ftp -r
+
+lsof -s 列出打开文件的大小，如果没有大小，则留下空白
+
+lsof -u username 以UID，列出打开的文件 www.2cto.com
+
+```
+
+[参考:Linux 命令神器：lsof](https://www.jianshu.com/p/a3aa6b01b2e1)
+# 文件操作
+## touch
+创建文件 
+touch 文件名
+## vim .gitignore
 编辑文件
 
-### cat .gitignore
+## cat .gitignore
 查看文件
 
-### pwd
-print working directory
+### pwd（print working directory）
+
 touch 文件名
 
 ### mkdir 新建目录
 mkdir 目录名
 
-### touch
-创建文件 
-touch 文件名
+
 
 ### ls -a
 可看到隐藏文件
