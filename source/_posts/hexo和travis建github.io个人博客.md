@@ -8,6 +8,16 @@ hexo和travis建github.io个人博客
 
 <!--more-->
 
+2021年9月份github处于安全考虑，需定期更新token。才能保证travis构建成功
+1. github生成新token，只勾选repo。复制新token。
+
+<img style="margin:0;" src="./hexo和travis建github.io个人博客/sc_20220118172123.png" />
+
+2. 将token设为为[travis](https://app.travis-ci.com/)中key为GH_TOKEN的environment variable。
+<img style="margin:0;" src="./hexo和travis建github.io个人博客/sc_20220118171909.png" />
+<img style="margin:0;" src="./hexo和travis建github.io个人博客/sc_20220118172004.png" />
+--------------------------------------------------------
+
 ## 建name.github.io 仓库(开源)
 可以自行百度，相关文章很多
 ## 安装hexo
