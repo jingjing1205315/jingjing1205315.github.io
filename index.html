@@ -146,6 +146,291 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/16/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="April">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="April的个人小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/16/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" class="post-title-link" itemprop="url">前端安全</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-03-16 17:55:40 / Modified: 11:17:59" itemprop="dateCreated datePublished" datetime="2022-03-16T17:55:40+00:00">2022-03-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>安全越来越受到大家的重视。在网络安全方面，我们前端可以做些什么呢？</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/16/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/16/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="April">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="April的个人小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/16/test/" class="post-title-link" itemprop="url">test</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-16 11:17:59" itemprop="dateCreated datePublished" datetime="2022-03-16T11:17:59+00:00">2022-03-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          class Node{
+    constructor(element){
+        this.element = element;
+        this.next = null;
+    }
+}
+class LinkedList{
+    constructor(){
+        this.head = undefined;
+        this.count = 0;
+        this.equelFn = function(ele1, ele2){
+            return ele1 === ele2;
+        }
+    }
+    push(element){
+        let node = new Node(element), lastNode = this.head;
+        if(this.count === 0){
+            this.head = node;
+        }else{
+            while(lastNode.next){
+                lastNode = lastNode.next;
+            }
+            lastNode.next = node;
+        }
+        this.count++;
+    }
+    insert(element, index){
+        if( index < 0 || index > this.count) return undefined;
+        let previousNode = this.getElementAt(index - 1);
+        let nextNode = this.getElementAt(index);
+        let node = new Node(element);
+        if(index === 0){
+            this.head = node;
+            node.next = nextNode;
+            return;
+        }
+        // if(index === this.count){
+        //     previousNode
+        // }
+        previousNode.next = node;
+        node.next = nextNode;
+        this.count++;
+    }
+    getElementAt(index){
+        if( index < 0 || index >= this.count) return undefined;
+        let node = this.head;
+        for(let i = 1; i <= 0 index; i++){ node="node.next;" } return node; remove(element){ let position="this.indexOf(element);" this.removeat(position); indexof(element){ index="-1," while(node){ index++ if( this.equelfn(element, node.element) ){ break; position; removeat(index){ < ||>= this.count) return undefined;
+        let previousNode = null, 
+            node = null,
+            nextNode = null;
+        if(index === 0 ){
+            node = this.head;
+            this.head = node.next;
+            return node;
+        }
+        previousNode = this.getElementAt(index -1);
+        node = previousNode.next;
+        nextNode = node.next;
+        if(!nextNode){
+            previousNode.next = undefined;
+        }else{
+            previousNode.next = nextNode;
+        }
+        this.count--;
+        return node;
+    }
+    isEmpty(){
+        return this.count === 0;
+    }
+    size(){
+        return this.count;
+    }
+    toString(){
+        let str = this.head.element, nextNode = this.head.next;
+        while( nextNode ){
+            str = `${str},${nextNode.element}`;
+            nextNode = nextNode.next;
+        }
+        return str;
+    }
+}
+linkedlist = new LinkedList();
+linkedlist.push(1)
+linkedlist.push(2)
+linkedlist.push(3)
+console.log(linkedlist.toString())
+// console.log(linkedlist.indexOf(2))
+// console.log(linkedlist.size())
+console.log(linkedlist.remove(3))
+console.log(linkedlist.insert(3, 0))
+console.log(linkedlist.toString())</=><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/07/%E5%85%B3%E4%BA%8E%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84battle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="April">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="April的个人小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/07/%E5%85%B3%E4%BA%8E%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84battle/" class="post-title-link" itemprop="url">关于前后端的battle</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-07 16:27:56" itemprop="dateCreated datePublished" datetime="2022-03-07T16:27:56+00:00">2022-03-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-16 11:17:59" itemprop="dateModified" datetime="2022-03-16T11:17:59+00:00">2022-03-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>关于传参</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/07/%E5%85%B3%E4%BA%8E%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9A%84battle/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/02/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -169,10 +454,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-02-14 17:53:07 / Modified: 11:36:30" itemprop="dateCreated datePublished" datetime="2022-02-14T17:53:07+00:00">2022-02-14</time>
+              <time title="Created: 2022-02-14 17:53:07" itemprop="dateCreated datePublished" datetime="2022-02-14T17:53:07+00:00">2022-02-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-16 11:17:59" itemprop="dateModified" datetime="2022-03-16T11:17:59+00:00">2022-03-16</time>
+              </span>
 
           
 
@@ -243,7 +534,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-14 11:36:29" itemprop="dateModified" datetime="2022-02-14T11:36:29+00:00">2022-02-14</time>
+                <time title="Modified: 2022-03-16 11:17:59" itemprop="dateModified" datetime="2022-03-16T11:17:59+00:00">2022-03-16</time>
               </span>
 
           
@@ -315,7 +606,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-14 11:36:30" itemprop="dateModified" datetime="2022-02-14T11:36:30+00:00">2022-02-14</time>
+                <time title="Modified: 2022-03-16 11:17:59" itemprop="dateModified" datetime="2022-03-16T11:17:59+00:00">2022-03-16</time>
               </span>
 
           
@@ -387,7 +678,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-14 11:36:29" itemprop="dateModified" datetime="2022-02-14T11:36:29+00:00">2022-02-14</time>
+                <time title="Modified: 2022-03-16 11:17:59" itemprop="dateModified" datetime="2022-03-16T11:17:59+00:00">2022-03-16</time>
               </span>
 
           
@@ -459,7 +750,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-14 11:36:29" itemprop="dateModified" datetime="2022-02-14T11:36:29+00:00">2022-02-14</time>
+                <time title="Modified: 2022-03-16 11:17:59" itemprop="dateModified" datetime="2022-03-16T11:17:59+00:00">2022-03-16</time>
               </span>
 
           
@@ -531,7 +822,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-14 11:36:30" itemprop="dateModified" datetime="2022-02-14T11:36:30+00:00">2022-02-14</time>
+                <time title="Modified: 2022-03-16 11:17:59" itemprop="dateModified" datetime="2022-03-16T11:17:59+00:00">2022-03-16</time>
               </span>
 
           
@@ -603,7 +894,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-14 11:36:30" itemprop="dateModified" datetime="2022-02-14T11:36:30+00:00">2022-02-14</time>
+                <time title="Modified: 2022-03-16 11:17:59" itemprop="dateModified" datetime="2022-03-16T11:17:59+00:00">2022-03-16</time>
               </span>
 
           
@@ -640,226 +931,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/10/node%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="April">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="April的个人小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/10/node%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">node学习</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-10 21:18:55" itemprop="dateCreated datePublished" datetime="2021-10-10T21:18:55+00:00">2021-10-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-14 11:36:30" itemprop="dateModified" datetime="2022-02-14T11:36:30+00:00">2022-02-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>node学习记录</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/10/node%E5%AD%A6%E4%B9%A0/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/09/Javascript-%E5%8A%A0%E8%BD%BD%E6%96%B9%E5%BC%8Fasync%E4%B8%8Edefer%E7%9A%84%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="April">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="April的个人小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/09/Javascript-%E5%8A%A0%E8%BD%BD%E6%96%B9%E5%BC%8Fasync%E4%B8%8Edefer%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">Javascript 加载方式async与defer的区别</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-09 13:53:36" itemprop="dateCreated datePublished" datetime="2021-10-09T13:53:36+00:00">2021-10-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-14 11:36:29" itemprop="dateModified" datetime="2022-02-14T11:36:29+00:00">2022-02-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>JavaScrip不同加载方式的区别</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/09/Javascript-%E5%8A%A0%E8%BD%BD%E6%96%B9%E5%BC%8Fasync%E4%B8%8Edefer%E7%9A%84%E5%8C%BA%E5%88%AB/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/12/css%20ctrl+c%E3%80%81ctrl+v/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="April">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="April的个人小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/12/css%20ctrl+c%E3%80%81ctrl+v/" class="post-title-link" itemprop="url">css ctrl+c、ctrl+v</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-08-12 18:21:58" itemprop="dateCreated datePublished" datetime="2021-08-12T18:21:58+00:00">2021-08-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-14 11:36:29" itemprop="dateModified" datetime="2022-02-14T11:36:29+00:00">2022-02-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>长按不选中 多行省略</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/12/css%20ctrl+c%E3%80%81ctrl+v/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -925,7 +1000,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
