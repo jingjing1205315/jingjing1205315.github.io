@@ -16,6 +16,11 @@ log,diff,reset,checkout
 ## origin
 ## HEAD
 # git 命令
+
+## git commit 
+-a ==add
+-m ==message git ci -m ''
+--amend 提交到上一条提交记录中
 ## git push
 ### git push某一次的commit记录
 
@@ -44,6 +49,7 @@ $ git push origin 2dc2b7e393e6b712ef103eaac81050b9693395a4:master
 （8）git stash clear ：删除所有缓存的stash
 
 ## git log 
+
 ```
 commit 96f50451c6f24a221c58c58a8cae136858fed97e (HEAD -> master)
 Author: April <zhangyajing1205315@163.com>
@@ -64,7 +70,15 @@ Date:   Thu Jan 21 19:54:08 2021 +0800
     init
 
 ```
+### git log --pretty=oneline
+```
+f571563b5593893b5daed871fc03575b32133046 (HEAD -> learn_git_branch) Merge branch 'prelive' of code.qschou.com:qschou/h5_fund into prelive
+9d51a3471043a39203be9178cbafc98b0e70d71d Merge branch 'feature-73979557-zyj更换项目分享内容' into prelive
+ebf3439722718482b1bf283d45cd4ac70c681392 Merge branch 'xc-baodai' into prelive
+566971c7776e9b9c699a33b3ecb6f35f35b65e91 (origin/xc-baodai) no message
+```
 
+## git reflog
 这时的git reflog 是
 
 ```
@@ -102,17 +116,20 @@ Date:   Thu Jan 21 19:54:08 2021 +0800
 4d4ddfc HEAD@{4}: commit (initial): init
 ```
 
-
-### git log --pretty=oneline
-```
-f571563b5593893b5daed871fc03575b32133046 (HEAD -> learn_git_branch) Merge branch 'prelive' of code.qschou.com:qschou/h5_fund into prelive
-9d51a3471043a39203be9178cbafc98b0e70d71d Merge branch 'feature-73979557-zyj更换项目分享内容' into prelive
-ebf3439722718482b1bf283d45cd4ac70c681392 Merge branch 'xc-baodai' into prelive
-566971c7776e9b9c699a33b3ecb6f35f35b65e91 (origin/xc-baodai) no message
-```
-
 ## git diff
 追踪当前**修改**内容。
+
+git diff <file> # 比较当前文件和暂存区文件差异 git diff
+
+git diff <id1><
+
+git diff <branch1>..<branch2> # 在两个分支之间比较
+
+git diff --staged # 比较暂存区和版本库差异
+
+git diff --cached # 比较暂存区和版本库差异
+
+git diff --stat # 仅仅比较统计信息
 
 ```
 diff --git a/source/_posts/Linux-Command.md b/source/_posts/Linux-Command.md
@@ -146,7 +163,13 @@ Changes not staged for commit:
 	modified:   source/_posts/Linux-Command.md
 ```
  ### git diff commit0 commit1 > test.patch 打patch（待补充）
-## git reset --hard 恢复文件为HEAD版本
+## git reset <commitHash>
+恢复文件为commitHash版本，丢弃commitHash之后的所有版本
+--hard 彻底回退到某个版本,本地的源码也会变为上一个版本的内容
+--sort 回退到某个版本,只回退了commit的信息,不会恢复到index file一级。如果还要提交,直接commit即可
+--mixed 默认方式,回退到某个版本,只保留源码,回退commit和index信息
+
+reset后想要恢复，用git reflog找到reset前的commitHash, 在reset到这个commitHash
 
 可以恢复Changes not staged for commit中的文件。
 
@@ -169,6 +192,71 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 
 ```
+## git clean 清楚untrack内容
+
+```
+git clean -f  // 清楚文件
+git clean -fd // 清除文件夹
+git clean -xfd // 连gitignore的untrack文件、目录也一起删掉，**慎用**一般来删除编译出的.o文件
+```
+## git revert 撤销某次提交
+
+```
+git revert HEAD                  撤销前一次 commit
+git revert HEAD^                 撤销前前一次 commit
+git revert commit号              撤销指定的版本，撤销也会作为一次提交进行保存。
+```
+版本会继续前进，revert的commit内容被中和没了。
+恢复的话再revert conmmitHash。如revert commitA删除了a修改形成commitB，再revert commitB，就会恢复a。
+
+reset是版本后端，内容被删除掉了。
+
+## git cherry-pick 检出某次提交到当前分支
+
+```
+git cherry-pick <commitHash> <HashB> // 来自其他分支的commitHash，应用于当前分支，形成新的commitHash
+```
+-e，--edit  编辑提交信息
+-n，--no-commit 只更新工作区和暂存区，不产生新的提交
+-x 在提交信息的末尾追加一行(cherry picked from commit ...)，方便以后查到这个提交是如何产生的。
+-s，--signoff 在提交信息的末尾追加一行操作者的签名，表示是谁进行了这个操作。
+-m parent-number，--mainline parent-number 原始提交是一个合并节点,默认将失败
+[git cherry-pick 教程](http://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html)
+## git stash # 暂存
+
+git stash list # 列所有stash
+
+git stash apply # 恢复暂存的内容
+
+git stash drop # 删除暂存区
+
+## git rebase <branchName>
+修改注释；合并commit；拆分commit
+
+-i --interactive 即弹出交互式的界面让用户编辑完成合并操作
+
+```
+pick：保留该commit（缩写:p）
+reword：保留该commit，但我需要修改该commit的注释（缩写:r）
+edit：保留该commit, 但我要停下来修改该提交(不仅仅修改注释)（缩写:e）
+squash：将该commit和前一个commit合并（缩写:s）
+fixup：将该commit和前一个commit合并，但我不要保留该提交的注释信息（缩写:f）
+exec：执行shell命令（缩写:x）
+drop：我要丢弃该commit（缩写:d）
+```
+类似cherry-pick的功能，将startpoint-commitHash到endpoint-commitHash之间的修改合并到branchName
+
+```
+    git rebase   [startpoint-commitHash]   [endpoint-commitHash]  --onto  [branchName]
+```
+不包含startpoint
+[【Git】rebase 用法小结](https://www.jianshu.com/p/4a8f4af4e803)
+## git 补丁管理
+git diff > ../sync.patch # 生成补丁
+
+git apply ../sync.patch # 打补丁
+
+git apply --check ../sync.patch #测试补丁能否成功
 
 # git 操作实例
 ## 冲突解决
@@ -330,5 +418,5 @@ git checkout
 参考：
 [Git 清空工作区和暂存区](https://blog.csdn.net/weixin_43664308/article/details/100083246)
 [廖雪峰Git教程](https://www.liaoxuefeng.com/wiki/896043488029600/897271968352576)
-    
+[git 常用命令](https://www.cnblogs.com/jeff-wgc/p/6401289.html)
 
