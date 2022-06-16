@@ -419,4 +419,5 @@ git checkout
 [Git 清空工作区和暂存区](https://blog.csdn.net/weixin_43664308/article/details/100083246)
 [廖雪峰Git教程](https://www.liaoxuefeng.com/wiki/896043488029600/897271968352576)
 [git 常用命令](https://www.cnblogs.com/jeff-wgc/p/6401289.html)
+[git 修改密码](https://www.cnblogs.com/yuanwanli/p/13985267.html)
 
